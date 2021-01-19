@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TopMenuComponent } from './header/top-menu/top-menu.component';
 import { SideMenuComponent } from './header/side-menu/side-menu.component';
+import { MainContentComponent } from './main-content/main-content.component';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { SideMenuComponent } from './header/side-menu/side-menu.component';
     FooterComponent,
     TopMenuComponent,
     SideMenuComponent,
+    MainContentComponent,
 ],
 imports: [
     CommonModule
@@ -19,7 +21,8 @@ exports: [
     HeaderComponent,
     FooterComponent,
     TopMenuComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    MainContentComponent,
   ]
 })
 export class LayoutModule { }
