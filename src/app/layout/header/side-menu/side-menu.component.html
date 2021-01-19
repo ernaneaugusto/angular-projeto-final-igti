@@ -1,0 +1,6 @@
+<nav class="nav flex-column nav-pills text-center" aria-orientation="vertical">
+    <a class="nav-link" 
+        [class.active]="item.isActive"
+        *ngFor="let item of menuItems">{{ item.description }}
+    </a>
+</nav>
