@@ -1,5 +1,12 @@
-.card-custom-container{
+#card-custom-container{
     margin-top: .5rem;
-    height: calc(100% - 70px);
+    height: calc(100% - 168px);
     padding: 10px 15px;
+
+    &.not-search-section {
+        height: calc(100% - 108px);
+    }
+}
+.main-title {
+    font-size: 1.75rem;
 }
