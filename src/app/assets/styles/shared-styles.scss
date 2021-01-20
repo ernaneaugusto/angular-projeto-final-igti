@@ -1,0 +1,55 @@
+$color_black: #000;
+$color_dark: #333;
+$color_info: #39C0ED;
+$color_white: #fff;
+
+/* FONTES */
+@font-face {
+    font-family: 'Ubuntu-Light';
+    src: url("./../fonts/Ubuntu/Ubuntu-Light.ttf");
+}
+@font-face {
+    font-family: 'Ubuntu-Regular';
+    src: url("./../fonts/Ubuntu/Ubuntu-Regular.ttf");
+}
+@font-face {
+    font-family: 'Ubuntu-Bold';
+    src: url("./../fonts/Ubuntu/Ubuntu-Bold.ttf");
+}
+
+/* REPLACE STYLES */
+.btn {
+    margin-right: 10px;
+}
+
+/* DEFAULT STYLES */
+h1, h2, h3, h4, h5, h6, p, input, li, div, section, main {
+    font-family: "Ubuntu-Light";
+}
+
+a, button {
+    font-family: "Ubuntu-Regular";
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    color: $color_dark;
+}
+
+/* COMMOM STYLES */
+.main-title {
+    font-size: 2rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-family: "Ubuntu-Regular";
+    text-transform: uppercase;
+
+    [class^="fa"] {
+        color: $color_info;
+    }
+}

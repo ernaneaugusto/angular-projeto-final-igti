@@ -2,11 +2,9 @@
     margin-top: .5rem;
     height: calc(100% - 168px);
     padding: 10px 15px;
+    padding-bottom: 60px;
 
     &.not-search-section {
         height: calc(100% - 108px);
     }
-}
-.main-title {
-    font-size: 1.75rem;
 }
