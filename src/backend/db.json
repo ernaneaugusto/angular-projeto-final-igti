@@ -1,0 +1,19 @@
+{
+    "promocoes": [
+        {
+            "id": 1,
+            "name": "Promoção 1",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates at libero amet! Sint, error nesciunt."
+        },
+        {
+            "id": 2,
+            "name": "Promoção 2",
+            "description": "Lorem ipsum consectetur adipisicing elit. Voluptates at libero amet! Sinterror."
+        },
+        {
+            "id": 3,
+            "name": "Promoção 3",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates at libero."
+        }
+    ]
+}

@@ -34,7 +34,7 @@
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/mdb-ui-kit/css/mdb.min.css",
               "src/styles.scss",
-              "src/app/assets/styles/shared-styles.scss"
+              "src/assets/styles/shared-styles.scss"
             ],
             "scripts": [
               "node_modules/mdb-ui-kit/js/mdb.min.js"
