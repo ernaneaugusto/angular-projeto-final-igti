@@ -3,14 +3,8 @@
     <hr />
 
     <div class="row">
-        <div class="col-lg-4 col-md-6 col-12 mb-3">
-            <app-card-promo></app-card-promo>
-        </div>
-        <div class="col-lg-4 col-md-6 col-12 mb-3">
-            <app-card-promo></app-card-promo>
-        </div>
-        <div class="col-lg-4 col-md-6 col-12 mb-3">
-            <app-card-promo></app-card-promo>
+        <div class="col-lg-4 col-md-6 col-12 mb-3" *ngFor="let promotion of promotions">
+            <app-card-promo [promotion]="promotion"></app-card-promo>
         </div>
     </div>
 

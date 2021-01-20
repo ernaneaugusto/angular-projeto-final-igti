@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { HomeComponent } from './pages/home/home.component';
 import { CardPromoComponent } from './shared/components/card-promo/card-promo.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CardPromoComponent } from './shared/components/card-promo/card-promo.co
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     LayoutModule
   ],

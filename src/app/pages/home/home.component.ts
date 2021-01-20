@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PromotionsService } from 'src/app/services/promotions.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public promotions: Array<any> = [];
+
+  constructor(private promotionsService: PromotionsService) { }
 
   ngOnInit(): void {
+    this.promotionsService
+      .getPromotions()
+      .subscribe((data: []) => {
+        this.promotions = data;        
+      });
   }
 
 }
