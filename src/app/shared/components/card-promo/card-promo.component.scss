@@ -1,0 +1,35 @@
+@import './../../../assets//styles/shared-styles.scss';
+
+.promo-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .promo-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        font-family: "Ubuntu-Regular";
+    }
+
+    .group-description {
+        margin-bottom: 15px;
+    }
+}
+
+.btn-group-block {
+    .btn {
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and(max-width: 992px) {
+    .btn-group-block {
+        display: flex;
+        flex-direction: column;
+
+        .btn {
+            margin-right: 0;
+        }
+    }
+}

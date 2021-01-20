@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { HomeComponent } from './pages/home/home.component';
+import { CardPromoComponent } from './shared/components/card-promo/card-promo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CardPromoComponent
   ],
   imports: [
     BrowserModule,
