@@ -1,0 +1,17 @@
+.group-radio-inline {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: .75rem;
+    margin-bottom: 1.5rem;
+
+    > {
+        .btn {
+            padding-left: 0;
+            padding-right: 0;
+            margin: 0;
+        }
+        .form-label {
+            width: 100%;
+        }
+    }
+}

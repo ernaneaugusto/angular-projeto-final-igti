@@ -1,6 +1,6 @@
-<main class="row mt-5">
+<main class="row mt-4">
     <section class="col-12">
-        <div class="row align-items-center">
+        <div class="row">
             <div class="col-lg-6 col-12">
                 <h1 class="section-title">App Fidelidade</h1>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium aliquam eveniet quibusdam modi
@@ -9,8 +9,8 @@
             <div class="col-lg-6 col-12">
                 <div class="card">
                     <div class="card-content">
-                        <h2 class="section-title text-center"><i class="fas fa-lock"></i> Acesse sua conta</h2>
-                        <hr />
+                        <!-- <h2 class="section-title text-center"><i class="fas fa-lock"></i> Acesse sua conta</h2>
+                        <hr /> -->
 
                         <ul class="nav nav-tabs nav-fill mb-3 p-3" id="ex1" role="tablist">
                             <li class="nav-item" role="presentation">
@@ -28,12 +28,12 @@
                                 aria-labelledby="tab-register">
 
                                 <form novalidate>
-                                    <div class="form-outline mb-4">
+                                    <div class="form-outline mb-3">
                                         <input type="email" id="input-email" class="form-control only-border-bottom" />
                                         <label class="form-label" for="input-email">E-mail *</label>
                                     </div>
 
-                                    <div class="form-outline input-group mb-4">
+                                    <div class="form-outline input-group mb-3">
                                         <input type="password" id="input-pass" aria-describedby="pass-addon"
                                             class="form-control only-border-bottom" />
                                         <label class="form-label" for="input-pass">Senha *</label>
@@ -43,15 +43,15 @@
                                         </span>
                                     </div>
 
-                                    <div class="row mb-4">
-                                        <div class="col d-flex justify-content-center">
+                                    <div class="row mb-3">
+                                        <!-- <div class="col d-flex justify-content-center">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="true"
-                                                    id="input-connected" checked />
-                                                <label class="form-check-label" for="input-connected"> Manter conectado
+                                                    id="input-connected" />
+                                                <label class="form-check-label" for="input-connected"> Mantenha-me conectado
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                         <div class="col">
                                             <a href="#!">Esqueceu sua senha?</a>
@@ -62,15 +62,22 @@
                                         Entrar</button>
                                 </form>
                             </div>
-                            <div class="tab-pane fade" id="tabs-login" role="tabpanel" aria-labelledby="tab-login">
+
+                            <div class="tab-pane fade" id="tabs-login" role="tabpanel"
+                                aria-labelledby="tab-login">
 
                                 <form novalidate>
-                                    <div class="form-outline mb-4">
+                                    <div class="form-outline mb-3">
+                                        <input type="text" id="input-name" class="form-control only-border-bottom" />
+                                        <label class="form-label" for="input-name">Nome completo *</label>
+                                    </div>
+
+                                    <div class="form-outline mb-3">
                                         <input type="email" id="input-email" class="form-control only-border-bottom" />
                                         <label class="form-label" for="input-email">E-mail *</label>
                                     </div>
 
-                                    <div class="form-outline input-group mb-4">
+                                    <div class="form-outline input-group mb-3">
                                         <input type="password" id="input-pass" aria-describedby="pass-addon"
                                             class="form-control only-border-bottom" />
                                         <label class="form-label" for="input-pass">Senha *</label>
@@ -80,7 +87,7 @@
                                         </span>
                                     </div>
 
-                                    <div class="form-outline input-group mb-4">
+                                    <div class="form-outline input-group mb-3">
                                         <input type="password" id="input-confirm-pass"
                                             aria-describedby="confirm-pass-addon"
                                             class="form-control only-border-bottom" />
@@ -89,6 +96,24 @@
                                             <i class="fas fa-eye"></i>
                                             <!-- <i class="fas fa-eye-slash"></i> -->
                                         </span>
+                                    </div>
+
+                                    <div class="group-radio-inline">
+                                        <label class="form-label d-block" for="input-name">
+                                            <strong>Você é: *</strong>
+                                        </label>
+    
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="input-user-type"
+                                                id="radio-client" value="C" checked />
+                                            <label class="form-check-label" for="radio-client">Cliente</label>
+                                        </div>
+    
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="input-user-type"
+                                                id="radio-establishment" value="E" />
+                                            <label class="form-check-label" for="radio-establishment">Estabelecimento</label>
+                                        </div>
                                     </div>
 
                                     <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-check"></i>
