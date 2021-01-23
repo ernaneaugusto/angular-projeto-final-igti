@@ -1,0 +1,104 @@
+<main class="row mt-5">
+    <section class="col-12">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-12">
+                <h1 class="section-title">App Fidelidade</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium aliquam eveniet quibusdam modi
+                    temporibus? Amet ducimus corrupti rerum ipsam dolorum.</p>
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="card">
+                    <div class="card-content">
+                        <h2 class="section-title text-center"><i class="fas fa-lock"></i> Acesse sua conta</h2>
+                        <hr />
+
+                        <ul class="nav nav-tabs nav-fill mb-3 p-3" id="ex1" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="tab-register" data-mdb-toggle="tab" href="#tabs-register"
+                                    role="tab" aria-controls="tabs-register" aria-selected="true">Já tenho conta</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-login" data-mdb-toggle="tab" href="#tabs-login" role="tab"
+                                    aria-controls="tabs-login" aria-selected="false">Quero me registrar</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content p-3">
+                            <div class="tab-pane fade show active" id="tabs-register" role="tabpanel"
+                                aria-labelledby="tab-register">
+
+                                <form novalidate>
+                                    <div class="form-outline mb-4">
+                                        <input type="email" id="input-email" class="form-control only-border-bottom" />
+                                        <label class="form-label" for="input-email">E-mail *</label>
+                                    </div>
+
+                                    <div class="form-outline input-group mb-4">
+                                        <input type="password" id="input-pass" aria-describedby="pass-addon"
+                                            class="form-control only-border-bottom" />
+                                        <label class="form-label" for="input-pass">Senha *</label>
+                                        <span class="input-group-text only-border-bottom" id="pass-addon">
+                                            <i class="fas fa-eye"></i>
+                                            <!-- <i class="fas fa-eye-slash"></i> -->
+                                        </span>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <div class="col d-flex justify-content-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="true"
+                                                    id="input-connected" checked />
+                                                <label class="form-check-label" for="input-connected"> Manter conectado
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col">
+                                            <a href="#!">Esqueceu sua senha?</a>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-check"></i>
+                                        Entrar</button>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="tabs-login" role="tabpanel" aria-labelledby="tab-login">
+
+                                <form novalidate>
+                                    <div class="form-outline mb-4">
+                                        <input type="email" id="input-email" class="form-control only-border-bottom" />
+                                        <label class="form-label" for="input-email">E-mail *</label>
+                                    </div>
+
+                                    <div class="form-outline input-group mb-4">
+                                        <input type="password" id="input-pass" aria-describedby="pass-addon"
+                                            class="form-control only-border-bottom" />
+                                        <label class="form-label" for="input-pass">Senha *</label>
+                                        <span class="input-group-text only-border-bottom" id="pass-addon">
+                                            <i class="fas fa-eye"></i>
+                                            <!-- <i class="fas fa-eye-slash"></i> -->
+                                        </span>
+                                    </div>
+
+                                    <div class="form-outline input-group mb-4">
+                                        <input type="password" id="input-confirm-pass"
+                                            aria-describedby="confirm-pass-addon"
+                                            class="form-control only-border-bottom" />
+                                        <label class="form-label" for="input-confirm-pass">Confirmar senha *</label>
+                                        <span class="input-group-text only-border-bottom" id="confirm-pass-addon">
+                                            <i class="fas fa-eye"></i>
+                                            <!-- <i class="fas fa-eye-slash"></i> -->
+                                        </span>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-check"></i>
+                                        Registrar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

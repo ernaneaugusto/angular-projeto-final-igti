@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { CardPromoComponent } from './shared/components/card-promo/card-promo.component';
 import { HomeModule } from './pages/home/home.module';
+import { LoginComponent } from './pages/login/login.component';
+import { LoginModule } from './pages/login/login.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { HomeModule } from './pages/home/home.module';
     HttpClientModule,
     AppRoutingModule,
     LayoutModule,
-    HomeModule
+    HomeModule,
+    LoginModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
