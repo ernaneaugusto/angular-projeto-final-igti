@@ -9,10 +9,12 @@ import { CardPromoComponent } from './shared/components/card-promo/card-promo.co
 import { HomeModule } from './pages/home/home.module';
 import { LoginComponent } from './pages/login/login.component';
 import { LoginModule } from './pages/login/login.module';
+import { PromotionComponent } from './pages/promotion/promotion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PromotionComponent,
   ],
   imports: [
     BrowserModule,
