@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4201",
+    "start-backend": "json-server --watch src/backend/db.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
