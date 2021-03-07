@@ -7,13 +7,11 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { HomeModule } from './pages/home/home.module';
 import { LoginModule } from './pages/login/login.module';
-import { PromotionComponent } from './pages/promotion/promotion.component';
+import { PerfilModule } from './pages/perfil/perfil.module';
+import { EstablishmentModule } from './pages/establishment/establishment.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PromotionComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -21,8 +19,10 @@ import { PromotionComponent } from './pages/promotion/promotion.component';
     LayoutModule,
     HomeModule,
     LoginModule,
+    PerfilModule,
+    EstablishmentModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

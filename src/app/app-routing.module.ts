@@ -13,6 +13,14 @@ const routes: Routes = [
   {
     path: 'nova-promocao',
     loadChildren: () => import('./pages/new-promotion/new-promotion.module').then(newPropotion => newPropotion.NewPromotionModule)
+  },
+  {
+    path: 'estabelecimento',
+    loadChildren: () => import('./pages/establishment/establishment.module').then(establishment => establishment.EstablishmentModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./pages/perfil/perfil.module').then(perfil => perfil.PerfilModule)
   }
 ]
 
