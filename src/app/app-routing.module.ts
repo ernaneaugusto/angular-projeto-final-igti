@@ -11,8 +11,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then(login => login.LoginModule)
   },
   {
-    path: 'nova-promocao',
-    loadChildren: () => import('./pages/new-promotion/new-promotion.module').then(newPropotion => newPropotion.NewPromotionModule)
+    path: 'promocao',
+    loadChildren: () => import('./pages/new-promotion/new-promotion.module').then(newPromotion => newPromotion.NewPromotionModule)
   },
   {
     path: 'estabelecimento',

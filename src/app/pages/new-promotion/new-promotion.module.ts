@@ -6,7 +6,8 @@ import { LayoutModule } from 'src/app/layout/layout.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
-  { path: '', component: NewPromotionComponent }
+  { path: '', component: NewPromotionComponent },
+  { path: ':id', component: NewPromotionComponent }
 ]
 
 @NgModule({
