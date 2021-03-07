@@ -22,9 +22,14 @@ $color_white: #fff;
 /* REPLACE STYLES */
 .btn {
     margin-right: 10px;
+    box-shadow: none;
 }
 .form-control {
     margin-bottom: 2.25rem;
+}
+.card {
+    box-shadow: none;
+    border: 1px solid #e0e0e0;
 }
 
 /* DEFAULT STYLES */
