@@ -2,13 +2,70 @@
                   [isSearchSection]="false">
 
   <div class="row">
-    <div class="col-12">
-      <h2 class="section-title"><i class="fas fa-user"></i> Veja abaixo sua informações:</h2>
-      <hr />
+
+    <div class="col-12 mb-4">
+      <button class="btn btn-info"
+              [routerLink]="['/estabelecimento']">Meu Estabelecimento <i class="fa fa-arrow-right"></i></button>
     </div>
 
     <div class="col-12">
-      <button class="btn btn-info" [routerLink]="['/estabelecimento']">Meu Estabelecimento</button>
+      <div class="col-12">
+        <form [formGroup]="form">
+
+          <div class="row">
+            <div class="col-lg-6 col-12">
+              <div class="form-outline">
+                <input type="text"
+                       id="name"
+                       name="name"
+                       forControlName="name"
+                       class="form-control only-border-bottom" />
+                <label class="form-label"
+                       for="name">Nome</label>
+              </div>
+            </div>
+            <div class="col-lg-6 col-12">
+              <div class="form-outline">
+                <input type="text"
+                       id="birtday"
+                       name="birtday"
+                       forControlName="birtday"
+                       class="form-control only-border-bottom" />
+                <label class="form-label"
+                       for="birtday">Data de nascimento(dd/mm/aaaa)</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-lg-6 col-12">
+              <div class="form-outline">
+                <input type="email"
+                       id="email"
+                       name="email"
+                       forControlName="email"
+                       class="form-control only-border-bottom" />
+                <label class="form-label"
+                       for="email">E-mail</label>
+              </div>
+            </div>
+            <div class="col-lg-6 col-12">
+              <div class="form-outline">
+                <input type="password"
+                       id="pass"
+                       name="pass"
+                       forControlName="pass"
+                       class="form-control only-border-bottom" />
+                <label class="form-label"
+                       for="pass">Senha</label>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary"><i class="fa fa-check"></i> Atualizar dados</button>
+
+        </form>
+      </div>
     </div>
   </div>
 
