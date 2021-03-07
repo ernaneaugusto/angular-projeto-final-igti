@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CardPromoComponent implements OnInit {
 
   @Input() promotion: any;
+  @Input() isAdmin: boolean = false;
 
   constructor() { }
 
