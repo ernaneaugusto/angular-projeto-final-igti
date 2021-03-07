@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-info" id="navbar-site">
     <div class="container">
-        <a class="navbar-brand" [routerLink]="['/']"><i class="fas fa-code"></i></a>
+        <a class="navbar-brand" [routerLink]="['/admin']"><i class="fas fa-code"></i></a>
 
         <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
             data-mdb-target="#navbarSite" aria-controls="navbarSite" aria-expanded="false"
@@ -20,7 +20,7 @@
                         Olá, Ernane
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" [routerLink]="['/perfil']"><i class="fa fa-user"></i> Meu perfil</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/admin', 'perfil']"><i class="fa fa-user"></i> Meu perfil</a></li>
                         <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
                     </ul>
                 </li>
