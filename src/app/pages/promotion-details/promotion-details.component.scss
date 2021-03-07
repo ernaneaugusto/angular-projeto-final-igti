@@ -1,0 +1,17 @@
+.card-details {
+  min-height: 165px;
+  [class*="fa"] {
+    font-size: 2rem;
+    display: inline-block;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .details-text {
+    font-weight: bold;
+  }
+  .card-body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
