@@ -1,1 +1,185 @@
-<p>new-promotion works!</p>
+<app-main-content title="Nova Promoção"
+                  [isSearchSection]="false">
+
+  <div class="row">
+    <div class="col-12">
+      <h2 class="section-title"><i class="fas fa-list-alt"></i> Preencha os dados abaixo:</h2>
+      <hr />
+    </div>
+    <div class="col-12">
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="col-lg-6 col-12">
+            <div class="form-outline">
+              <input type="text"
+                     id="name"
+                     name="name"
+                     forControlName="name"
+                     class="form-control only-border-bottom" />
+              <label class="form-label"
+                     for="name">Nome da Promoção</label>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="form-outline">
+              <input type="text"
+                     id="validity"
+                     name="validity"
+                     forControlName="validity"
+                     class="form-control only-border-bottom" />
+              <label class="form-label"
+                     for="validity">Validade da Promoção dd/mm/aaaa</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 col-12">
+            <div class="form-outline">
+              <input type="number"
+                     id="stars"
+                     name="stars"
+                     forControlName="stars"
+                     class="form-control only-border-bottom" />
+              <label class="form-label"
+                     for="stars">Número de estrelas ou Valor total</label>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="form-outline">
+              <input type="number"
+                     id="starsMin"
+                     name="starsMin"
+                     forControlName="starsMin"
+                     class="form-control only-border-bottom" />
+              <label class="form-label"
+                     for="starsMin">Número de estrelas ou Valor total mínimo</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 col-12">
+            <div class="form-outline">
+              <input type="text"
+                     id="category"
+                     name="category"
+                     forControlName="category"
+                     class="form-control only-border-bottom" />
+              <label class="form-label"
+                     for="category">Categoria(Lanches, Mercado, Limpeza, Higiene...)</label>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="form-outline">
+              <label class="form-label sr-only"
+                     for="name">Produto</label>
+              <select class="form-select only-border-bottom"
+                      aria-label="
+                      Produto">
+                <option selected
+                        disabled>Produto</option>
+                <option value="1">Nome Produto 1</option>
+                <option value="2">Nome Produto 2</option>
+                <option value="3">Nome Produto 3</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 mb-4">
+            <div class="form-outline">
+              <label class="form-label"
+                     for="expirate">Número de estrelas ou Valor total expiram?</label>
+
+              <div class="d-flex">
+                <input type="radio"
+                       class="btn-check"
+                       name="expirate"
+                       formControlNamename="expirate"
+                       id="sim" />
+                <label class="btn btn-info mb-2"
+                       for="sim">Sim</label>
+
+                <input type="radio"
+                       class="btn-check"
+                       name="expirate"
+                       formControlNamename="expirate"
+                       id="nao" />
+                <label class="btn btn-info mb-2"
+                       for="nao">Não</label>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-12 mb-5">
+            <div class="form-outline">
+              <div>
+                <label class="form-label"
+                       for="expirate">Dias da semana</label>
+              </div>
+
+              <div>
+                <input type="checkbox"
+                       class="btn-check"
+                       id="allDays" />
+                <label class="btn btn-info mb-3"
+                       for="allDays">Todos os dias</label>
+              </div>
+
+              <input type="checkbox"
+                     class="btn-check"
+                     id="day1" />
+              <label class="btn btn-info mb-2"
+                     for="day1">Segunda</label>
+
+              <input type="checkbox"
+                     class="btn-check"
+                     id="day2" />
+              <label class="btn btn-info mb-2"
+                     for="day2">Terça</label>
+
+              <input type="checkbox"
+                     class="btn-check"
+                     id="day3" />
+              <label class="btn btn-info mb-2"
+                     for="day3">Quarta</label>
+
+              <input type="checkbox"
+                     class="btn-check"
+                     id="day4" />
+              <label class="btn btn-info mb-2"
+                     for="day4">Quinta</label>
+
+              <input type="checkbox"
+                     class="btn-check"
+                     id="day5" />
+              <label class="btn btn-info mb-2"
+                     for="day5">Sexta</label>
+
+              <input type="checkbox"
+                     class="btn-check"
+                     id="day6" />
+              <label class="btn btn-info mb-2"
+                     for="day6">Sábado</label>
+
+              <input type="checkbox"
+                     class="btn-check"
+                     id="day7" />
+              <label class="btn btn-info mb-2"
+                     for="day7">Domingo</label>
+
+            </div>
+
+          </div>
+        </div>
+
+        <button class="btn btn-primary">Salvar Promoção</button>
+
+      </form>
+    </div>
+  </div>
+
+</app-main-content>

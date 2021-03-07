@@ -1,6 +1,7 @@
 $color_black: #000;
 $color_dark: #333;
 $color_gray_light: #ecf0f1;
+$color_gray: #bdc3c7;
 $color_info: #39C0ED;
 $color_white: #fff;
 
@@ -21,6 +22,9 @@ $color_white: #fff;
 /* REPLACE STYLES */
 .btn {
     margin-right: 10px;
+}
+.form-control {
+    margin-bottom: 2.25rem;
 }
 
 /* DEFAULT STYLES */
@@ -62,5 +66,10 @@ h1, h2, h3, h4, h5, h6, p {
 }
 .only-border-bottom {
     border: 0;
-    border-bottom: 1px solid $color_gray_light !important;
+    border-bottom: 1px solid $color_gray !important;
+    border-radius: 0;
+    
+    &:focus {
+      border-bottom-color: $color_info;
+    }
 }
