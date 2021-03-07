@@ -3,266 +3,259 @@
 
   <div class="row">
     <div class="col-12">
-      <h2 class="section-title"><i class="fas fa-user"></i> Informações do ser Estabelecimento:</h2>
-      <hr />
-    </div>
-
-    <div class="col-12">
-      <div class="col-12">
-        <form [formGroup]="form">
-          <div class="row">
-            <div class="col-lg-6 col-12">
-              <div class="form-outline">
-                <input type="text"
-                       id="name"
-                       name="name"
-                       forControlName="name"
-                       class="form-control only-border-bottom" />
-                <label class="form-label"
-                       for="name">Nome do Estabelecimento</label>
-              </div>
-            </div>
-            <div class="col-lg-6 col-12">
-              <div class="form-outline">
-                <input type="text"
-                       id="address"
-                       name="address"
-                       forControlName="address"
-                       class="form-control only-border-bottom" />
-                <label class="form-label"
-                       for="address">Endereço</label>
-              </div>
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="col-lg-6 col-12">
+            <div class="form-outline">
+              <input type="text"
+                     id="name"
+                     name="name"
+                     forControlName="name"
+                     class="form-control only-border-bottom" />
+              <label class="form-label"
+                     for="name">Nome do Estabelecimento</label>
             </div>
           </div>
-
-          <div class="row">
-            <div class="col-lg-4 col-12">
-              <div class="form-outline">
-                <input type="text"
-                       id="city"
-                       name="city"
-                       forControlName="city"
-                       class="form-control only-border-bottom" />
-                <label class="form-label"
-                       for="city">Cidade</label>
-              </div>
-            </div>
-            <div class="col-lg-4 col-12">
-              <div class="form-outline">
-                <input type="text"
-                       id="district"
-                       name="district"
-                       forControlName="district"
-                       class="form-control only-border-bottom" />
-                <label class="form-label"
-                       for="district">Bairro</label>
-              </div>
-            </div>
-            <div class="col-lg-4 col-12">
-              <div class="form-outline">
-                <input type="text"
-                       id="state"
-                       name="state"
-                       forControlName="state"
-                       class="form-control only-border-bottom" />
-                <label class="form-label"
-                       for="state">Estado</label>
-              </div>
+          <div class="col-lg-6 col-12">
+            <div class="form-outline">
+              <input type="text"
+                     id="address"
+                     name="address"
+                     forControlName="address"
+                     class="form-control only-border-bottom" />
+              <label class="form-label"
+                     for="address">Endereço</label>
             </div>
           </div>
+        </div>
 
-          <div class="row">
-            <div class="col-12 mb-5">
-              <div class="form-outline">
+        <div class="row">
+          <div class="col-lg-4 col-12">
+            <div class="form-outline">
+              <input type="text"
+                     id="city"
+                     name="city"
+                     forControlName="city"
+                     class="form-control only-border-bottom" />
+              <label class="form-label"
+                     for="city">Cidade</label>
+            </div>
+          </div>
+          <div class="col-lg-4 col-12">
+            <div class="form-outline">
+              <input type="text"
+                     id="district"
+                     name="district"
+                     forControlName="district"
+                     class="form-control only-border-bottom" />
+              <label class="form-label"
+                     for="district">Bairro</label>
+            </div>
+          </div>
+          <div class="col-lg-4 col-12">
+            <div class="form-outline">
+              <input type="text"
+                     id="state"
+                     name="state"
+                     forControlName="state"
+                     class="form-control only-border-bottom" />
+              <label class="form-label"
+                     for="state">Estado</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 mb-5">
+            <div class="form-outline">
+              <div>
+                <label class="form-label"
+                       for="expirate">Horário de funcionamento</label>
+              </div>
+
+              <div class="mb-4">
+                <input type="checkbox"
+                       class="btn-check"
+                       id="allDays" />
+                <label class="btn btn-info mb-3"
+                       for="allDays">Todos os dias</label>
+              </div>
+
+              <div class="days-group">
                 <div>
-                  <label class="form-label"
-                         for="expirate">Horário de funcionamento</label>
-                </div>
-
-                <div class="mb-4">
                   <input type="checkbox"
                          class="btn-check"
-                         id="allDays" />
-                  <label class="btn btn-info mb-3"
-                         for="allDays">Todos os dias</label>
+                         id="day1" />
+                  <label class="btn btn-info"
+                         for="day1">Segunda</label>
                 </div>
 
-                <div class="days-group">
-                  <div>
-                    <input type="checkbox"
-                           class="btn-check"
-                           id="day1" />
-                    <label class="btn btn-info"
-                           for="day1">Segunda</label>
-                  </div>
+                <div class="d-flex">
+                  <label for="hoursOpen1">De:</label>
+                  <input type="text"
+                         class="form-control only-border-bottom mb-0"
+                         name="hoursOpen1"
+                         id="hoursOpen1">
 
-                  <div class="d-flex">
-                    <label for="hoursOpen1">De:</label>
-                    <input type="text"
-                           class="form-control only-border-bottom mb-0"
-                           name="hoursOpen1"
-                           id="hoursOpen1">
-
-                    <label for="hoursClose1">Até:</label>
-                    <input type="text"
-                           class="form-control only-border-bottom mb-0"
-                           name="hoursClose1"
-                           id="hoursClose1">
-                  </div>
+                  <label for="hoursClose1">Até:</label>
+                  <input type="text"
+                         class="form-control only-border-bottom mb-0"
+                         name="hoursClose1"
+                         id="hoursClose1">
                 </div>
-
-                <div class="days-group">
-                  <div>
-                    <input type="checkbox"
-                           class="btn-check"
-                           id="day2" />
-                    <label class="btn btn-info"
-                           for="day2">Terça</label>
-                  </div>
-
-                  <div class="d-flex">
-                    <label for="hoursOpen2">De:</label>
-                    <input type="text"
-                           class="form-control only-border-bottom mb-0"
-                           name="hoursOpen2"
-                           id="hoursOpen2">
-
-                    <label for="hoursClose2">Até:</label>
-                    <input type="text"
-                           class="form-control only-border-bottom mb-0"
-                           name="hoursClose2"
-                           id="hoursClose2">
-                  </div>
-                </div>
-
-                <div class="days-group">
-                  <div>
-                    <input type="checkbox"
-                           class="btn-check"
-                           id="day3" />
-                    <label class="btn btn-info"
-                           for="day3">Quarta</label>
-                  </div>
-
-                  <div class="d-flex">
-                    <label for="hoursOpen3">De:</label>
-                    <input type="text"
-                           class="form-control only-border-bottom mb-0"
-                           name="hoursOpen3"
-                           id="hoursOpen3">
-
-                    <label for="hoursClose3">Até:</label>
-                    <input type="text"
-                           class="form-control only-border-bottom mb-0"
-                           name="hoursClose3"
-                           id="hoursClose3">
-                  </div>
-                </div>
-
-                <div class="days-group">
-                  <div>
-                    <input type="checkbox"
-                           class="btn-check"
-                           id="day4" />
-                    <label class="btn btn-info"
-                           for="day4">Quinta</label>
-                  </div>
-
-                  <div class="d-flex">
-                    <label for="hoursOpen4">De:</label>
-                    <input type="text"
-                           class="form-control only-border-bottom mb-0"
-                           name="hoursOpen4"
-                           id="hoursOpen4">
-
-                    <label for="hoursClose4">Até:</label>
-                    <input type="text"
-                           class="form-control only-border-bottom mb-0"
-                           name="hoursClose4"
-                           id="hoursClose4">
-                  </div>
-                </div>
-
-                <div class="days-group">
-                  <div>
-                    <input type="checkbox"
-                           class="btn-check"
-                           id="day5" />
-                    <label class="btn btn-info"
-                           for="day5">Sexta</label>
-                  </div>
-
-                  <div class="d-flex">
-                    <label for="hoursOpen5">De:</label>
-                    <input type="text"
-                           class="form-control only-border-bottom mb-0"
-                           name="hoursOpen5"
-                           id="hoursOpen5">
-
-                    <label for="hoursClose5">Até:</label>
-                    <input type="text"
-                           class="form-control only-border-bottom mb-0"
-                           name="hoursClose5"
-                           id="hoursClose5">
-                  </div>
-                </div>
-
-                <div class="days-group">
-                  <div>
-                    <input type="checkbox"
-                           class="btn-check"
-                           id="day6" />
-                    <label class="btn btn-info"
-                           for="day6">Sábado</label>
-                  </div>
-
-                  <div class="d-flex">
-                    <label for="hoursOpen6">De:</label>
-                    <input type="text"
-                           class="form-control only-border-bottom mb-0"
-                           name="hoursOpen6"
-                           id="hoursOpen6">
-
-                    <label for="hoursClose6">Até:</label>
-                    <input type="text"
-                           class="form-control only-border-bottom mb-0"
-                           name="hoursClose6"
-                           id="hoursClose6">
-                  </div>
-                </div>
-
-                <div class="days-group">
-                  <div>
-                    <input type="checkbox"
-                           class="btn-check"
-                           id="day7" />
-                    <label class="btn btn-info"
-                           for="day7">Domingo</label>
-                  </div>
-
-                  <div class="d-flex">
-                    <label for="hoursOpen7">De:</label>
-                    <input type="text"
-                           class="form-control only-border-bottom mb-0"
-                           name="hoursOpen7"
-                           id="hoursOpen7">
-
-                    <label for="hoursClose7">Até:</label>
-                    <input type="text"
-                           class="form-control only-border-bottom mb-0"
-                           name="hoursClose7"
-                           id="hoursClose7">
-                  </div>
-                </div>
-
               </div>
+
+              <div class="days-group">
+                <div>
+                  <input type="checkbox"
+                         class="btn-check"
+                         id="day2" />
+                  <label class="btn btn-info"
+                         for="day2">Terça</label>
+                </div>
+
+                <div class="d-flex">
+                  <label for="hoursOpen2">De:</label>
+                  <input type="text"
+                         class="form-control only-border-bottom mb-0"
+                         name="hoursOpen2"
+                         id="hoursOpen2">
+
+                  <label for="hoursClose2">Até:</label>
+                  <input type="text"
+                         class="form-control only-border-bottom mb-0"
+                         name="hoursClose2"
+                         id="hoursClose2">
+                </div>
+              </div>
+
+              <div class="days-group">
+                <div>
+                  <input type="checkbox"
+                         class="btn-check"
+                         id="day3" />
+                  <label class="btn btn-info"
+                         for="day3">Quarta</label>
+                </div>
+
+                <div class="d-flex">
+                  <label for="hoursOpen3">De:</label>
+                  <input type="text"
+                         class="form-control only-border-bottom mb-0"
+                         name="hoursOpen3"
+                         id="hoursOpen3">
+
+                  <label for="hoursClose3">Até:</label>
+                  <input type="text"
+                         class="form-control only-border-bottom mb-0"
+                         name="hoursClose3"
+                         id="hoursClose3">
+                </div>
+              </div>
+
+              <div class="days-group">
+                <div>
+                  <input type="checkbox"
+                         class="btn-check"
+                         id="day4" />
+                  <label class="btn btn-info"
+                         for="day4">Quinta</label>
+                </div>
+
+                <div class="d-flex">
+                  <label for="hoursOpen4">De:</label>
+                  <input type="text"
+                         class="form-control only-border-bottom mb-0"
+                         name="hoursOpen4"
+                         id="hoursOpen4">
+
+                  <label for="hoursClose4">Até:</label>
+                  <input type="text"
+                         class="form-control only-border-bottom mb-0"
+                         name="hoursClose4"
+                         id="hoursClose4">
+                </div>
+              </div>
+
+              <div class="days-group">
+                <div>
+                  <input type="checkbox"
+                         class="btn-check"
+                         id="day5" />
+                  <label class="btn btn-info"
+                         for="day5">Sexta</label>
+                </div>
+
+                <div class="d-flex">
+                  <label for="hoursOpen5">De:</label>
+                  <input type="text"
+                         class="form-control only-border-bottom mb-0"
+                         name="hoursOpen5"
+                         id="hoursOpen5">
+
+                  <label for="hoursClose5">Até:</label>
+                  <input type="text"
+                         class="form-control only-border-bottom mb-0"
+                         name="hoursClose5"
+                         id="hoursClose5">
+                </div>
+              </div>
+
+              <div class="days-group">
+                <div>
+                  <input type="checkbox"
+                         class="btn-check"
+                         id="day6" />
+                  <label class="btn btn-info"
+                         for="day6">Sábado</label>
+                </div>
+
+                <div class="d-flex">
+                  <label for="hoursOpen6">De:</label>
+                  <input type="text"
+                         class="form-control only-border-bottom mb-0"
+                         name="hoursOpen6"
+                         id="hoursOpen6">
+
+                  <label for="hoursClose6">Até:</label>
+                  <input type="text"
+                         class="form-control only-border-bottom mb-0"
+                         name="hoursClose6"
+                         id="hoursClose6">
+                </div>
+              </div>
+
+              <div class="days-group">
+                <div>
+                  <input type="checkbox"
+                         class="btn-check"
+                         id="day7" />
+                  <label class="btn btn-info"
+                         for="day7">Domingo</label>
+                </div>
+
+                <div class="d-flex">
+                  <label for="hoursOpen7">De:</label>
+                  <input type="text"
+                         class="form-control only-border-bottom mb-0"
+                         name="hoursOpen7"
+                         id="hoursOpen7">
+
+                  <label for="hoursClose7">Até:</label>
+                  <input type="text"
+                         class="form-control only-border-bottom mb-0"
+                         name="hoursClose7"
+                         id="hoursClose7">
+                </div>
+              </div>
+
             </div>
           </div>
+        </div>
 
-          <button class="btn btn-primary">Atualizar dados</button>
+        <button class="btn btn-primary"><i class="fa fa-check"></i> Atualizar dados</button>
 
-        </form>
-      </div>
+      </form>
     </div>
   </div>
 
