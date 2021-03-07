@@ -5,9 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
-import { CardPromoComponent } from './shared/components/card-promo/card-promo.component';
 import { HomeModule } from './pages/home/home.module';
-import { LoginComponent } from './pages/login/login.component';
 import { LoginModule } from './pages/login/login.module';
 import { PromotionComponent } from './pages/promotion/promotion.component';
 
