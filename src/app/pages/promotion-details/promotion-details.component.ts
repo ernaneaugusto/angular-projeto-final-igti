@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PromotionDetailsComponent implements OnInit {
 
+  public isFavorite = false;
+  public favoriteInfo = "";
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public toggleFavorite(): void {
+    this.isFavorite = !this.isFavorite;
+    this.favoriteInfo = this.isFavorite ? "Remover das favoritas" : "Adicionar às favoritas"
   }
 
 }
