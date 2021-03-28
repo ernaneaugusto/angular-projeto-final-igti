@@ -13,4 +13,8 @@ export class PromotionsService {
   public getPromotions(): Observable<any> {
     return this.http.get<any>(`${URL.baseUrl}/${URL.promotions}`);
   }
+  
+  public deletePromotion(id: string): Observable<any> {
+    return this.http.delete<any>(`${URL.baseUrl}/${URL.promotions}/${id}`);
+  }
 }

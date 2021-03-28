@@ -6,7 +6,7 @@
             <hr />
         </div>
         <div class="col-lg-4 col-md-6 col-12 mb-3" *ngFor="let promotion of promotions">
-            <app-card-promo [promotion]="promotion" [isAdmin]="true"></app-card-promo>
+            <app-card-promo (deleteItem)="deletePromotion($event)" [promotion]="promotion" [isAdmin]="true"></app-card-promo>
         </div>
 
         <div class="col-12 mt-5">

@@ -21,6 +21,17 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  public deletePromotion(event: PromotionModel) {
+    const promotion = event;
+    this.promotionsService
+      .deletePromotion(event.id)
+      .subscribe(() => {
+        alert(`Promoção ${promotion.name} excluída com sucesso!`);
+      }, () => {
+        alert(`Error ao excluir a Promoção ${promotion.name}!`)
+      });
+  }
+
   private createModel(promotion: Array<Promotion>) {
     const promotionModel = new Array<PromotionModel>();
 
