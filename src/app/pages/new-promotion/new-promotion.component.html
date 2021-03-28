@@ -1,4 +1,4 @@
-<app-main-content title="Nova Promoção"
+<app-main-content [title]="promotionId.length === 0 ? 'Nova Promoção' :'Editar Promoção'"
                   [isSearchSection]="false">
 
   <div class="row">
@@ -6,26 +6,26 @@
       <form [formGroup]="form" class="needs-validation" novalidate>
         <div class="row">
           <div class="col-lg-6 col-12 mb-4">
-            <div class="form-outline">
+            <div class="form-group">
+              <label class="form-label"
+                     for="name">Nome da Promoção</label>
               <input type="text"
                      id="name"
                      name="name"
                      formControlName="name"
                      class="form-control only-border-bottom" />
-              <label class="form-label"
-                     for="name">Nome da Promoção</label>
               <div *ngIf="f.name.errors && f.name.touched" class="text-warning">Nome é obrigatório</div>
             </div>
           </div>
           <div class="col-lg-6 col-12 mb-4">
-            <div class="form-outline">
+            <div class="form-group">
+              <label class="form-label"
+                     for="validity">Validade da Promoção dd/mm/aaaa</label>
               <input type="text"
                      id="validity"
                      name="validity"
                      formControlName="validity"
                      class="form-control only-border-bottom" />
-              <label class="form-label"
-                     for="validity">Validade da Promoção dd/mm/aaaa</label>
               <div *ngIf="f.validity.errors && f.validity.touched" class="text-warning">Validade da Promoção é obrigatório</div>
             </div>
           </div>
@@ -33,26 +33,26 @@
 
         <div class="row">
           <div class="col-lg-6 col-12 mb-4">
-            <div class="form-outline">
+            <div class="form-group">
+              <label class="form-label"
+                     for="stars">Número de estrelas ou Valor total</label>
               <input type="number"
                      id="stars"
                      name="stars"
                      formControlName="stars"
                      class="form-control only-border-bottom" />
-              <label class="form-label"
-                     for="stars">Número de estrelas ou Valor total</label>
               <div *ngIf="f.stars.errors && f.stars.touched" class="text-warning">Número de estrelas é obrigatório</div>
             </div>
           </div>
           <div class="col-lg-6 col-12 mb-4">
-            <div class="form-outline">
+            <div class="form-group">
+              <label class="form-label"
+                     for="starsMin">Número de estrelas ou Valor total mínimo</label>
               <input type="number"
                      id="starsMin"
                      name="starsMin"
                      formControlName="starsMin"
                      class="form-control only-border-bottom" />
-              <label class="form-label"
-                     for="starsMin">Número de estrelas ou Valor total mínimo</label>
               <div *ngIf="f.starsMin.errors && f.starsMin.touched" class="text-warning">Número de estrelas mínimo é obrigatório</div>
             </div>
           </div>
@@ -60,20 +60,20 @@
 
         <div class="row">
           <div class="col-lg-6 col-12 mb-4">
-            <div class="form-outline">
+            <div class="form-group">
+              <label class="form-label"
+                     for="category">Categoria(Lanches, Mercado, Limpeza, Higiene...)</label>
               <input type="text"
                      id="category"
                      name="category"
                      formControlName="category"
                      class="form-control only-border-bottom" />
-              <label class="form-label"
-                     for="category">Categoria(Lanches, Mercado, Limpeza, Higiene...)</label>
               <div *ngIf="f.category.errors && f.category.touched" class="text-warning">Categoria é obrigatório</div>
             </div>
           </div>
           <div class="col-lg-6 col-12">
-            <div class="form-outline">
-              <label class="form-label sr-only"
+            <div class="form-group">
+              <label class="form-label"
                      for="name">Produto</label>
               <select class="form-select only-border-bottom"
                      name="product"
@@ -93,7 +93,7 @@
 
         <div class="row">
           <div class="col-12 mb-4">
-            <div class="form-outline">
+            <div class="form-group">
               <label class="form-label"
                      for="expirate">Número de estrelas ou Valor total expiram?</label>
 
@@ -123,32 +123,36 @@
 
           </div>
           <div class="col-lg-6 col-12 mb-4">
-              <div class="form-outline">
+              <div class="form-group">
+              <label class="form-label"
+                     for="weekDays">Dias da semana(segunda, terça, quarta...)</label>
                 <input
                        type="text"
                        id="weekDays"
                        name="weekDays"
                        formControlName="weekDays"
                        class="form-control only-border-bottom" />
-                <label class="form-label"
-                       for="weekDays">Dias da semana(segunda, terça, quarta...)</label>
               <div *ngIf="f.weekDays.errors && f.weekDays.touched" class="text-warning">Dias da Semana é obrigatório</div>
               </div>
             </div>
             <div class="col-lg-6 col-12 mb-4">
-              <div class="form-outline">
-                <input type="text"
-                       id="description"
-                       name="description"
-                       formControlName="description"
-                       class="form-control only-border-bottom" />
-                <label class="form-label"
-                       for="description">Breve descrição da Promoção</label>
-                <div *ngIf="f.description.errors && f.description.touched" class="text-warning">Descrição  é obrigatório</div>
+              <div class="form-group">
+                     <label class="form-label"
+                            for="description">Breve descrição da Promoção</label>
+                     <input type="text"
+                            id="description"
+                            name="description"
+                            formControlName="description"
+                            class="form-control only-border-bottom" />
+                     <div *ngIf="f.description.errors && f.description.touched" class="text-warning">Descrição  é obrigatório</div>
               </div>
+              <input type="hidden"
+                     id="establishmentId"
+                     name="establishmentId"
+                     formControlName="establishmentId"/>
             </div>
           <!-- <div class="col-12 mb-5">
-            <div class="form-outline">
+            <div class="form-group">
               <div>
                 <label class="form-label"
                        for="expirate">Dias da semana</label>
@@ -215,7 +219,12 @@
               </div>
         </div>
 
-        <button class="btn btn-primary" [disabled]="form.invalid" (click)="submitForm()"><i class="fa fa-check"></i> Salvar Promoção</button>
+        <button class="btn btn-primary" [disabled]="form.invalid" (click)="submitForm()"><i class="fa fa-check"></i> 
+              <span *ngIf="!isFlowEdit; else editFlow"> Salvar Promoção</span>
+              <ng-template #editFlow>
+                     <span> Atualizar Promoção</span>
+              </ng-template>
+       </button>
 
       </form>
     </div>
