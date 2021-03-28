@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PromotionsService } from 'src/app/services/promotions.service';
-import {
-  Promotion,
-  PromotionModel,
-} from './../../shared/models/promotion/promotion.model';
+import { Promotion } from 'src/app/shared/models/promotion/promotion.interface';
+import { PromotionModel } from './../../shared/models/promotion/promotion.model';
 
 @Component({
   selector: 'app-home',

@@ -1,8 +1,5 @@
-export interface Promotion {
-  id: string;
-  name: string;
-  description: string;
-}
+
+import { Promotion } from './promotion.interface';
 
 export class PromotionModel {
   public id: string;

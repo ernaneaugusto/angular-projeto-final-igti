@@ -1,4 +1,5 @@
 export interface Promotion {
+  id: string;
   name: string;
   validity: string;
   stars: number;
