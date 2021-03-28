@@ -5,6 +5,7 @@ import { NewPromotionComponent } from './new-promotion.component';
 import { LayoutModule } from 'src/app/layout/layout.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PromotionDetailsModule } from './../promotion-details/promotion-details.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Routes = [
   { path: '', component: NewPromotionComponent },
@@ -23,8 +24,10 @@ const routes: Routes = [
   imports: [
 CommonModule,
   RouterModule.forChild(routes),
+  SharedModule,
   LayoutModule,
-  PromotionDetailsModule,
+  // @TODO: verificar se tem que exportar PromotionDetailsModule aqui nesse local
+  // PromotionDetailsModule,
   ReactiveFormsModule
   ],
   exports: [
