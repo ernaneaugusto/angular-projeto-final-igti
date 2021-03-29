@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from './../../services/user.service';
 import { User } from './../../shared/models/user/user.interface';
 import { StatusMessage } from './../../shared/components/status-message/model/status-message.interface';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-login',
@@ -39,6 +40,7 @@ export class LoginComponent implements OnInit {
 
       const f = form.value;
       const data: User = {
+        id: uuidv4(),
         name: f.registerName,
         email: f.registerEmail,
         password: f.registerPassword,
