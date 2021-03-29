@@ -13,56 +13,81 @@
         <form [formGroup]="form">
 
           <div class="row">
-            <div class="col-lg-6 col-12">
-              <div class="form-outline">
+            <div class="col-12 mb-3">
+              <div class="form-group">
+                <label class="form-label"
+                       for="name">Nome *</label>
                 <input type="text"
                        id="name"
                        name="name"
-                       forControlName="name"
+                       formControlName="name"
+                       placeholder="Seu nome"
                        class="form-control only-border-bottom" />
-                <label class="form-label"
-                       for="name">Nome</label>
-              </div>
-            </div>
-            <div class="col-lg-6 col-12">
-              <div class="form-outline">
-                <input type="text"
-                       id="birtday"
-                       name="birtday"
-                       forControlName="birtday"
-                       class="form-control only-border-bottom" />
-                <label class="form-label"
-                       for="birtday">Data de nascimento(dd/mm/aaaa)</label>
               </div>
             </div>
           </div>
           
           <div class="row">
-            <div class="col-lg-6 col-12">
-              <div class="form-outline">
+            <div class="col-12 col-lg-6 mb-3">
+              <div class="form-group">
+                <label class="form-label"
+                       for="email">E-mail *</label>
                 <input type="email"
                        id="email"
                        name="email"
-                       forControlName="email"
+                       formControlName="email"
+                       placeholder="exemplo@email.com"
                        class="form-control only-border-bottom" />
-                <label class="form-label"
-                       for="email">E-mail</label>
               </div>
             </div>
-            <div class="col-lg-6 col-12">
-              <div class="form-outline">
-                <input type="password"
-                       id="pass"
-                       name="pass"
-                       forControlName="pass"
-                       class="form-control only-border-bottom" />
+            <div class="col-lg-6 col-12 mb-3">
+              <div class="form-group">
                 <label class="form-label"
-                       for="pass">Senha</label>
+                       for="birthday">Data de nascimento *</label>
+                <input type="text"
+                       id="birthday"
+                       name="birthday"
+                       formControlName="birthday"
+                       placeholder="dd/mm/aaaa"
+                       class="form-control only-border-bottom" />
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-lg-6 col-12 mb-3">
+              <div class="form-group">
+                <label class="form-label"
+                       for="password">Senha *</label>
+                <input type="password"
+                       id="password"
+                       name="password"
+                       formControlName="password"
+                       placeholder="********"
+                       class="form-control only-border-bottom" />
+              </div>
+            </div>
+            <div class="col-lg-6 col-12 mb-3">
+              <div class="form-group">
+                <label class="form-label"
+                       for="confirmPassword">Confirmar senha *</label>
+                <input type="password"
+                       id="confirmPassword"
+                       name="confirmPassword"
+                       formControlName="confirmPassword"
+                       placeholder="********"
+                       class="form-control only-border-bottom" />
               </div>
             </div>
           </div>
 
-          <button class="btn btn-primary"><i class="fa fa-check"></i> Atualizar dados</button>
+          <button (click)="submitForm()" class="btn btn-primary"><i class="fa fa-check"></i> Atualizar dados</button>
+
+          <div class="row" *ngIf="submitInfo.show && submitInfo.message !== ''">
+            <div class="col-12">
+              <app-status-message [message]="submitInfo.message" [type]="submitInfo.type"></app-status-message>
+            </div>
+          </div>
 
         </form>
       </div>

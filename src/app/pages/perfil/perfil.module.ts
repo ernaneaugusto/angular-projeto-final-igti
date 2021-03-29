@@ -4,9 +4,10 @@ import { PerfilComponent } from './perfil.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutModule } from 'src/app/layout/layout.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Routes = [
-  { path: '', component: PerfilComponent }
+  { path: ':id', component: PerfilComponent }
 ];
 
 @NgModule({
@@ -15,6 +16,7 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     LayoutModule,
+    SharedModule,
     RouterModule.forChild(routes)
   ],
   exports: [PerfilComponent]
