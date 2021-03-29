@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from './../../services/user.service';
 import { User } from './../../shared/models/user/user.interface';
+import { StatusMessage } from './../../shared/components/status-message/model/status-message.interface';
 
 @Component({
   selector: 'app-login',
@@ -22,9 +23,7 @@ export class LoginComponent implements OnInit {
     registerType: new FormControl('C', [Validators.required]),
   });
 
-  public registerSuccess: boolean = false;
-  public errorSubmit: boolean = false;
-  public submitInfo = {
+  public submitInfo: StatusMessage = {
     message: '',
     type: '',
     show: false,
@@ -36,7 +35,6 @@ export class LoginComponent implements OnInit {
     const form = this.formRegister;
 
     if (form.valid) {
-      this.registerSuccess = false;
       this.submitInfo.show = true;
 
       const f = form.value;
@@ -46,19 +44,17 @@ export class LoginComponent implements OnInit {
         password: f.registerPassword,
         confirmPassword: f.registerConfirmPassword,
         type: f.registerType,
+        promotions: []
       };
 
       this.user.setRegisterUser(data).subscribe(
         () => {
           this.formRegister.reset();
-          this.registerSuccess = true;
           this.submitInfo.message =
             'Usuário cadastrado com sucesso! Faça login e aproveite as Promoções dos nossos parceiros';
           this.submitInfo.type = 'success';
         },
         () => {
-          this.registerSuccess = false;
-          this.errorSubmit = true;
           this.submitInfo.message = 'Erro ao cadastrar novo Usuário!';
           this.submitInfo.type = 'danger';
         }

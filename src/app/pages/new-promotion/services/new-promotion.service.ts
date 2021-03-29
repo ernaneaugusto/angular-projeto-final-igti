@@ -15,7 +15,7 @@ export class NewPromotionService {
   }
   
   public editPromotion(data: Promotion) {
-    return this.http.put<Promotion>(`${URL.baseUrl}/${URL.promotions}/${data.id}`, data);
+    return this.http.patch<Promotion>(`${URL.baseUrl}/${URL.promotions}/${data.id}`, data);
   }
 
   public getPromotionById(id: string) {

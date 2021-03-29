@@ -24,6 +24,11 @@ $color_white: #fff;
     margin-right: 10px;
     box-shadow: none;
 }
+.form-label {
+    font-weight: bold;
+    font-size: 14px;
+}
+.input-group > .form-control,
 .form-control {
     &:focus {
         box-shadow: none;
