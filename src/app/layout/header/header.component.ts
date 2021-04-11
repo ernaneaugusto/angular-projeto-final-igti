@@ -9,6 +9,7 @@ import { Router, Event, NavigationStart } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   public isLogged = false;
+  public userId: string | number = '';
 
   constructor(
     private loginService: LoginService,
@@ -23,7 +24,9 @@ export class HeaderComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.userId = this.loginService.getUserLocalStorage().id;
+  }
 
   public logout(): void {
     this.loginService.logout();
