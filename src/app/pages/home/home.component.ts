@@ -3,6 +3,7 @@ import { PromotionsService } from 'src/app/services/promotions.service';
 import { Promotion } from 'src/app/shared/models/promotion/promotion.interface';
 import { PromotionModel } from './../../shared/models/promotion/promotion.model';
 import { Subscription } from 'rxjs';
+import { LoginService } from './../../services/login.service';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +14,17 @@ export class HomeComponent implements OnInit, OnDestroy {
   public promotions: Array<PromotionModel> = [];
   private subs$: Subscription = new Subscription();
 
-  constructor(private promotionsService: PromotionsService) {}
+  constructor(
+    private promotionsService: PromotionsService,
+    private loginService: LoginService,
+  ) {}
 
   ngOnInit(): void {
+    const {id} = this.loginService.getUserLocalStorage();
+    
     this.subs$.add(
       this.promotionsService
-        .getPromotions()
+        .getPromotionsByEstablishment(id)
         .subscribe((data: Array<Promotion>) => {
           this.promotions = this.createModel(data);
         })
