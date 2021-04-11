@@ -3,7 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from './../../services/user.service';
 import { User } from './../../shared/models/user/user.interface';
 import { StatusMessage } from './../../shared/components/status-message/model/status-message.interface';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as 'uuidv4 '} from 'uuid';
+import { LoginService } from './../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -30,7 +31,16 @@ export class LoginComponent implements OnInit {
     show: false,
   };
 
-  constructor(private user: UserService) {}
+  constructor(private user: UserService, private loginService: LoginService) {}
+
+  public login() {
+    const form = this.formLogin;
+
+    if (form.valid) {
+      const { loginEmail, loginPassword } = form.value;
+      this.loginService.login(loginEmail, loginPassword);
+    }
+  }
 
   public submitFormRegister(): void {
     const form = this.formRegister;
@@ -40,13 +50,14 @@ export class LoginComponent implements OnInit {
 
       const f = form.value;
       const data: User = {
-        id: uuidv4(),
+        // @TODO: colocar uuidv4() em id: uuidv4()
+        id: '', 
         name: f.registerName,
         email: f.registerEmail,
         password: f.registerPassword,
         confirmPassword: f.registerConfirmPassword,
         type: f.registerType,
-        promotions: []
+        promotions: [],
       };
 
       this.user.setRegisterUser(data).subscribe(

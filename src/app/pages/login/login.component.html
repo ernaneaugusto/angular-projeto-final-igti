@@ -60,7 +60,7 @@
                                         </div> -->
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-check"></i>
+                                    <button (click)="login()" type="submit" class="btn btn-primary btn-block"><i class="fas fa-check"></i>
                                         Entrar</button>
 
                                         <div class="row">
@@ -142,6 +142,8 @@
 
                                     <button [disabled]="formRegister.invalid" (click)="submitFormRegister()" type="submit" class="btn btn-primary btn-block"><i class="fas fa-check"></i>
                                         Registrar</button>
+
+                                        <p>{{submitInfo || ""}}</p>
 
                                     <div class="row" *ngIf="submitInfo.show && submitInfo.message !== ''">
                                         <div class="col-12">
