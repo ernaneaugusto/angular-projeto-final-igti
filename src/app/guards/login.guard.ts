@@ -19,7 +19,7 @@ export class LoginGuard implements CanLoad {
     | boolean
     | UrlTree {
     const user = this.loginService.getUserLocalStorage('user');
-    let isLogin = user.length != 0 ? true : false;
+    let isLogin = (user.id !== "" && user.type !== "") ? true : false;
 
     if (!isLogin) {
       this.loginService.clearLocalStorage();

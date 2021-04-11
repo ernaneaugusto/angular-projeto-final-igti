@@ -63,8 +63,23 @@ export class LoginService {
     localStorage.setItem(USER_KEY, JSON.stringify(this.userData));
   }
 
-  public getUserLocalStorage(key = USER_KEY): string {
+  public getUserLocalStorage(key = USER_KEY): UserLocalData {
     const localUser = localStorage.getItem(key);
-    return localUser ? localUser : '';
+    const userParse = this.formatUserLocalStorage(localUser || '');
+    return userParse;
+  }
+
+  private formatUserLocalStorage(data: string): UserLocalData {
+    const localData = {
+      id: '',
+      type: '',
+    };
+
+    if (data.length !== 0) {
+      const parseData = JSON.parse(data);
+      localData.id = parseData.id;
+      localData.type = parseData.type;
+    }
+    return localData;
   }
 }
