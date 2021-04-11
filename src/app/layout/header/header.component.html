@@ -21,7 +21,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" [routerLink]="['/admin', 'perfil']"><i class="fa fa-user"></i> Meu perfil</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+                        <li><a class="dropdown-item" (click)="logout()" href="#"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
                     </ul>
                 </li>
             </ul>
