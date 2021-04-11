@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from './../../services/user.service';
 import { User } from './../../shared/models/user/user.interface';
 import { StatusMessage } from './../../shared/components/status-message/model/status-message.interface';
 // import { v4 as 'uuidv4 '} from 'uuid';
 import { LoginService } from './../../services/login.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   public formLogin: FormGroup = new FormGroup({
     loginEmail: new FormControl('', [Validators.required, Validators.email]),
     loginPassword: new FormControl('', [Validators.required]),
@@ -31,14 +32,22 @@ export class LoginComponent implements OnInit {
     show: false,
   };
 
+  private subs$: Subscription = new Subscription();
+
   constructor(private user: UserService, private loginService: LoginService) {}
+
+  ngOnInit(): void {}
+
+  ngOnDestroy(): void {
+    this.subs$.unsubscribe();
+  }
 
   public login() {
     const form = this.formLogin;
 
     if (form.valid) {
       const { loginEmail, loginPassword } = form.value;
-      this.loginService.login(loginEmail, loginPassword);
+      this.subs$.add(this.loginService.login(loginEmail, loginPassword));
     }
   }
 
@@ -51,7 +60,7 @@ export class LoginComponent implements OnInit {
       const f = form.value;
       const data: User = {
         // @TODO: colocar uuidv4() em id: uuidv4()
-        id: '', 
+        id: '',
         name: f.registerName,
         email: f.registerEmail,
         password: f.registerPassword,
@@ -59,21 +68,20 @@ export class LoginComponent implements OnInit {
         type: f.registerType,
         promotions: [],
       };
-
-      this.user.setRegisterUser(data).subscribe(
-        () => {
-          this.formRegister.reset();
-          this.submitInfo.message =
-            'Usuário cadastrado com sucesso! Faça login e aproveite as Promoções dos nossos parceiros';
-          this.submitInfo.type = 'success';
-        },
-        () => {
-          this.submitInfo.message = 'Erro ao cadastrar novo Usuário!';
-          this.submitInfo.type = 'danger';
-        }
+      this.subs$.add(
+        this.user.setRegisterUser(data).subscribe(
+          () => {
+            this.formRegister.reset();
+            this.submitInfo.message =
+              'Usuário cadastrado com sucesso! Faça login e aproveite as Promoções dos nossos parceiros';
+            this.submitInfo.type = 'success';
+          },
+          () => {
+            this.submitInfo.message = 'Erro ao cadastrar novo Usuário!';
+            this.submitInfo.type = 'danger';
+          }
+        )
       );
     }
   }
-
-  ngOnInit(): void {}
 }
