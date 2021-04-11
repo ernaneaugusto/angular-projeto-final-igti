@@ -13,7 +13,7 @@
                 <app-top-menu></app-top-menu>
             </div>
 
-            <ul class="navbar-nav w-auto">
+            <ul class="navbar-nav w-auto" *ngIf="isLogged">
                 <li class="nav-item dropdown">
                     <a class="dropdown-toggle btn btn-light btn-rounded" href="#" id="navbarDropdown" role="button"
                         data-mdb-toggle="dropdown" aria-expanded="false">
