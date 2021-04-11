@@ -51,6 +51,12 @@ export class LoginService {
       this.router.navigateByUrl("/login");
     }
   }
+ 
+  public clearLocalStorage(): void {
+    alert("Você precisa estar logado para acessar essa página!");
+    localStorage.clear();
+    this.router.navigateByUrl("/login");
+  }
 
   public setUserLocalStorage(user: UserLocalData): void {
     this.userData = user;
