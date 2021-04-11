@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './../../services/login.service';
-import { ActivatedRoute, Router, RouterEvent, Event, NavigationStart } from '@angular/router';
-import { Location } from "@angular/common";
+import { Router, Event, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-header',
