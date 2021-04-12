@@ -22,6 +22,7 @@
 
 <section class="card" id="card-custom-container" [class.not-search-section]="!isSearchSection">
     <div class="card-content">
+        <a *ngIf="isBackButton" (click)="back()" class="btn btn-outline-info btn-sm mb-4"><i class="fa fa-arrow-left"></i> Voltar</a>
         <ng-content></ng-content>
     </div>
 </section>
