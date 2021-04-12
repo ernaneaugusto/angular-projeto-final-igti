@@ -14,4 +14,5 @@ export interface User {
 export interface UserLocalData {
   id: string;
   type: string;
+  establishmentId?: string;
 }
