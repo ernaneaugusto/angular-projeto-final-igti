@@ -17,6 +17,7 @@ export class NewPromotionComponent implements OnInit {
     type: '',
   };
   public form: FormGroup = new FormGroup({
+    id: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required]),
     validity: new FormControl('', [Validators.required]),
     stars: new FormControl('', [Validators.required]),
@@ -55,6 +56,7 @@ export class NewPromotionComponent implements OnInit {
           .getPromotionById(this.promotionId)
           .subscribe((promotion: Promotion) => {
             const {
+              id: idPromo,
               name,
               validity,
               stars,
@@ -68,6 +70,7 @@ export class NewPromotionComponent implements OnInit {
             } = promotion;
 
             this.form.setValue({
+              id: idPromo,
               name,
               validity,
               stars,
@@ -86,7 +89,7 @@ export class NewPromotionComponent implements OnInit {
 
   public submitForm(): void {
     const data: Promotion = this.form.value;
-    data.establishmentId = '1';
+    // data.establishmentId = '1';
 
     // Reset error infos
     this.submitInfo = {
@@ -115,7 +118,12 @@ export class NewPromotionComponent implements OnInit {
 
       this.newPromotionService.editPromotion(editData).subscribe(
         () => {
-          this.form.reset();
+          if(this.promotionId) {
+            this.form.setValue(editData);
+          } else {
+            this.form.reset();
+          }
+          
           this.submitInfo.message = 'Promoção atualizada com sucesso!';
           this.submitInfo.type = 'success';
         },
