@@ -4,6 +4,7 @@ import { UserService } from './../../services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/shared/models/user/user.interface';
 import { StatusMessage } from './../../shared/components/status-message/model/status-message.interface';
+import { LoginService } from './../../services/login.service';
 
 @Component({
   selector: 'app-perfil',
@@ -12,6 +13,7 @@ import { StatusMessage } from './../../shared/components/status-message/model/st
 })
 export class PerfilComponent implements OnInit {
   private userId: string = '';
+  public userType: string = '';
   public form: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -29,12 +31,17 @@ export class PerfilComponent implements OnInit {
 
   constructor(
     private user: UserService,
+    private loginService: LoginService,
     private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.userType = this.loginService.getUserLocalStorage().type;
+    
     this.activatedRoute.params.subscribe(() => {
-      const { id } = this.activatedRoute.snapshot.params;
+      const idParms = this.activatedRoute.snapshot.params.id;
+      // @TODO: verificar se a regra abaixo esta funcionando corretamente
+      const id = idParms ? idParms : this.loginService.getUserLocalStorage().id;
 
       if (id && id.length > 0) {
         this.userId = id;
@@ -59,6 +66,7 @@ export class PerfilComponent implements OnInit {
     this.submitInfo.show = true;
 
     const data: User = {
+      id: this.userId,
       name: '',
       email: '',
       birthday: '',

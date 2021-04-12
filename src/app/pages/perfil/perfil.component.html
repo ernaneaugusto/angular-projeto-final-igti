@@ -3,7 +3,7 @@
 
   <div class="row">
 
-    <div class="col-12 mb-4">
+    <div class="col-12 mb-4" *ngIf="userType === 'E'">
       <button class="btn btn-info"
               [routerLink]="['/admin', 'estabelecimento']">Meu Estabelecimento <i class="fa fa-arrow-right"></i></button>
     </div>
