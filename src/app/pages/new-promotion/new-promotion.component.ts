@@ -4,6 +4,8 @@ import { NewPromotionService } from './services/new-promotion.service';
 import { Promotion } from './../../shared/models/promotion/promotion.interface';
 import { ActivatedRoute } from '@angular/router';
 import { PromotionModel } from 'src/app/shared/models/promotion/promotion.model';
+import { EstablishmentService } from './../../services/establishment.service';
+import { LoginService } from './../../services/login.service';
 
 @Component({
   selector: 'app-new-promotion',
@@ -17,7 +19,7 @@ export class NewPromotionComponent implements OnInit {
     type: '',
   };
   public form: FormGroup = new FormGroup({
-    id: new FormControl('', [Validators.required]),
+    id: new FormControl('', []),
     name: new FormControl('', [Validators.required]),
     validity: new FormControl('', [Validators.required]),
     stars: new FormControl('', [Validators.required]),
@@ -32,6 +34,7 @@ export class NewPromotionComponent implements OnInit {
 
   // Edit flow
   public promotionId: string = '';
+  public establishmentId: string = '';
   public isFlowEdit: boolean = false;
   public promotion: Array<PromotionModel> = [];
 
@@ -41,15 +44,18 @@ export class NewPromotionComponent implements OnInit {
 
   constructor(
     private newPromotionService: NewPromotionService,
+    private establishmentService: EstablishmentService,
+    private loginService: LoginService,
     private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(() => {
-      const { id } = this.activatedRoute.snapshot.params;
+    const {id: idPromotion} = this.loginService.getUserLocalStorage();
+    const routeId = this.activatedRoute.snapshot.params;    
 
-      if (id && id.length > 0) {
-        this.promotionId = id;
+    if(routeId.id?.length > 0) {
+      this.activatedRoute.params.subscribe(() => {
+        this.promotionId = routeId.id;
         this.isFlowEdit = true;
 
         this.newPromotionService
@@ -83,8 +89,17 @@ export class NewPromotionComponent implements OnInit {
               expirate,
             });
           });
-      }
-    });
+      });
+    } else {
+      this.establishmentService
+        .getPromotionByEstablishment(idPromotion)
+        .subscribe((data: any) => {
+          this.establishmentId = data[0].establishmentId;
+          this.form.patchValue({
+            establishmentId: this.establishmentId
+          })
+        });
+    }
   }
 
   public submitForm(): void {
