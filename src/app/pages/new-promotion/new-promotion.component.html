@@ -14,7 +14,7 @@
                      name="name"
                      formControlName="name"
                      class="form-control only-border-bottom" />
-              <div *ngIf="f.name.errors && f.name.touched" class="text-warning">Nome é obrigatório</div>
+              <div *ngIf="f.name.errors && f.name.touched" class="text-danger">Nome é obrigatório</div>
             </div>
           </div>
           <div class="col-lg-6 col-12 mb-4">
@@ -26,7 +26,7 @@
                      name="validity"
                      formControlName="validity"
                      class="form-control only-border-bottom" />
-              <div *ngIf="f.validity.errors && f.validity.touched" class="text-warning">Validade da Promoção é obrigatório</div>
+              <div *ngIf="f.validity.errors && f.validity.touched" class="text-danger">Validade da Promoção é obrigatório</div>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@
                      name="stars"
                      formControlName="stars"
                      class="form-control only-border-bottom" />
-              <div *ngIf="f.stars.errors && f.stars.touched" class="text-warning">Número de estrelas é obrigatório</div>
+              <div *ngIf="f.stars.errors && f.stars.touched" class="text-danger">Número de estrelas é obrigatório</div>
             </div>
           </div>
           <div class="col-lg-6 col-12 mb-4">
@@ -53,7 +53,7 @@
                      name="starsMin"
                      formControlName="starsMin"
                      class="form-control only-border-bottom" />
-              <div *ngIf="f.starsMin.errors && f.starsMin.touched" class="text-warning">Número de estrelas mínimo é obrigatório</div>
+              <div *ngIf="f.starsMin.errors && f.starsMin.touched" class="text-danger">Número de estrelas mínimo é obrigatório</div>
             </div>
           </div>
         </div>
@@ -68,7 +68,7 @@
                      name="category"
                      formControlName="category"
                      class="form-control only-border-bottom" />
-              <div *ngIf="f.category.errors && f.category.touched" class="text-warning">Categoria é obrigatório</div>
+              <div *ngIf="f.category.errors && f.category.touched" class="text-danger">Categoria é obrigatório</div>
             </div>
           </div>
           <div class="col-lg-6 col-12">
@@ -86,7 +86,7 @@
                 <option value="2">Nome Produto 2</option>
                 <option value="3">Nome Produto 3</option>
               </select>
-              <div *ngIf="f.product.errors && f.product.touched" class="text-warning">Produto é obrigatório</div>
+              <div *ngIf="f.product.errors && f.product.touched" class="text-danger">Produto é obrigatório</div>
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@
                        for="nao">Não</label>
               </div>
               
-              <div *ngIf="f.expirate.errors && f.expirate.touched" class="text-warning">Campo é obrigatório</div>
+              <div *ngIf="f.expirate.errors && f.expirate.touched" class="text-danger">Campo é obrigatório</div>
 
             </div>
 
@@ -132,7 +132,7 @@
                        name="weekDays"
                        formControlName="weekDays"
                        class="form-control only-border-bottom" />
-              <div *ngIf="f.weekDays.errors && f.weekDays.touched" class="text-warning">Dias da Semana é obrigatório</div>
+              <div *ngIf="f.weekDays.errors && f.weekDays.touched" class="text-danger">Dias da Semana é obrigatório</div>
               </div>
             </div>
             <div class="col-lg-6 col-12 mb-4">
@@ -144,7 +144,7 @@
                             name="description"
                             formControlName="description"
                             class="form-control only-border-bottom" />
-                     <div *ngIf="f.description.errors && f.description.touched" class="text-warning">Descrição  é obrigatório</div>
+                     <div *ngIf="f.description.errors && f.description.touched" class="text-danger">Descrição  é obrigatório</div>
               </div>
               <input type="hidden"
                      id="establishmentId"
