@@ -3,20 +3,15 @@
 
   <div class="row">
 
-    <div class="col-12 mb-4" *ngIf="userType === 'E'">
-      <button class="btn btn-info"
-              [routerLink]="['/admin', 'estabelecimento']">Meu Estabelecimento <i class="fa fa-arrow-right"></i></button>
-    </div>
-
     <div class="col-12">
       <div class="col-12">
         <form [formGroup]="form">
 
           <div class="row">
-            <div class="col-12 mb-3">
+            <div class="col-lg-6 col-12 mb-3">
               <div class="form-group">
                 <label class="form-label"
-                       for="name">Nome *</label>
+                       for="name">Nome<span *ngIf="userType === 'E'"> do Estabelecimento</span> *</label>
                 <input type="text"
                        id="name"
                        name="name"
@@ -25,10 +20,105 @@
                        class="form-control only-border-bottom" />
               </div>
             </div>
+            <div class="col-lg-6 col-12 mb-3">
+              <div class="form-group">
+                <label class="form-label"
+                      *ngIf="userType === 'E'"
+                       for="birthday">Data de inauguração *</label>
+                <label class="form-label"
+                  *ngIf="userType === 'C'"
+                  for="birthday">Data de nascimento *</label>
+                <input type="text"
+                       id="birthday"
+                       name="birthday"
+                       formControlName="birthday"
+                       placeholder="dd/mm/aaaa"
+                       class="form-control only-border-bottom" />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6 col-12 mb-3">
+              <div class="form-group">
+                <label class="form-label"
+                       for="name">Endereço *</label>
+                <input type="text"
+                        id="address"
+                        name="address"
+                        formControlName="address"
+                       class="form-control only-border-bottom" />
+              </div>
+            </div>
+            <div class="col-lg-6 col-12 mb-3">
+              <div class="form-group">
+                <label class="form-label"
+                       for="city">Cidade *</label>
+                <input type="text"
+                       id="city"
+                       name="city"
+                       forControlName="city"
+                       class="form-control only-border-bottom" />
+              </div>
+            </div>
           </div>
           
           <div class="row">
-            <div class="col-12 col-lg-6 mb-3">
+            <div class="col-lg-6 col-12 mb-3">
+              <div class="form-group">
+                <label class="form-label"
+                       for="district">Bairro *</label>
+                <input type="text"
+                       id="district"
+                       name="district"
+                       forControlName="district"
+                       class="form-control only-border-bottom" />
+              </div>
+            </div>
+            <div class="col-lg-6 col-12 mb-3">
+              <div class="form-group">
+                <label class="form-label"
+                       for="state">Estado *</label>
+                <select 
+                  class="form-select form-control only-border-bottom"
+                  id="state"
+                  name="state"
+                  forControlName="state">
+                  <option disabled selected value="">-- Selecione</option>
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espírito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Roraima</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-12 col-lg-4 mb-3">
               <div class="form-group">
                 <label class="form-label"
                        for="email">E-mail *</label>
@@ -40,22 +130,7 @@
                        class="form-control only-border-bottom" />
               </div>
             </div>
-            <div class="col-lg-6 col-12 mb-3">
-              <div class="form-group">
-                <label class="form-label"
-                       for="birthday">Data de nascimento *</label>
-                <input type="text"
-                       id="birthday"
-                       name="birthday"
-                       formControlName="birthday"
-                       placeholder="dd/mm/aaaa"
-                       class="form-control only-border-bottom" />
-              </div>
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="col-lg-6 col-12 mb-3">
+            <div class="col-lg-4 col-12 mb-3">
               <div class="form-group">
                 <label class="form-label"
                        for="password">Senha *</label>
@@ -67,7 +142,7 @@
                        class="form-control only-border-bottom" />
               </div>
             </div>
-            <div class="col-lg-6 col-12 mb-3">
+            <div class="col-lg-4 col-12 mb-3">
               <div class="form-group">
                 <label class="form-label"
                        for="confirmPassword">Confirmar senha *</label>
