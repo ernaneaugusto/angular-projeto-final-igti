@@ -16,12 +16,20 @@ export class PerfilComponent implements OnInit {
   public userType: string = '';
   public form: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
+    address: new FormControl('', [Validators.required]),
+    city: new FormControl('', [Validators.required]),
+    district: new FormControl('', [Validators.required]),
+    state: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
     confirmPassword: new FormControl('', [Validators.required]),
     type: new FormControl('', [Validators.required]),
     birthday: new FormControl('', [Validators.required]),
   });
+
+  get f() {
+    return this.form.controls;
+  }
 
   public submitInfo: StatusMessage = {
     message: '',
@@ -47,7 +55,18 @@ export class PerfilComponent implements OnInit {
         this.userId = id;
 
         this.user.getUserById(this.userId).subscribe((user: User) => {
-          const { name, email, birthday, type } = user;
+          console.log("## data", user);
+          
+          const {
+            name,
+            email,
+            birthday,
+            type,
+            address,
+            city,
+            district,
+            state
+          } = user;
 
           this.form.setValue({
             name,
@@ -56,6 +75,10 @@ export class PerfilComponent implements OnInit {
             type,
             password: '',
             confirmPassword: '',
+            address: address ? address : '',
+            city: city ? city : '',
+            district: district ? district : '',
+            state: state ? state : '',
           });
         });
       }
@@ -80,12 +103,20 @@ export class PerfilComponent implements OnInit {
       type,
       password,
       confirmPassword,
+      address,
+      city,
+      district,
+      state
     } = this.form.value;
 
     data.name = name;
     data.email = email;
     data.birthday = birthday;
     data.type = type;
+    data.address = address;
+    data.city = city;
+    data.district = district;
+    data.state = state;
     data.id = this.userId;
 
     if (password !== '' || confirmPassword !== '') {
@@ -97,7 +128,20 @@ export class PerfilComponent implements OnInit {
       () => {
         this.submitInfo.message = 'Dados atualizados com sucesso!';
         this.submitInfo.type = 'success';
-        this.form.setValue(data);
+        
+        // Seta os campos como vazio por seguranca
+        this.form.patchValue(
+          {
+            password: '',
+            confirmPassword: ''
+          }
+        );
+
+        // Os campos de Senha e Confirmar Senha sao obrigatorios
+        // com isso atualizamos o status do form para untouched
+        // para que as mensagens de validacao deles nao apareca 
+        this.form.markAsUntouched();
+        this.form.updateValueAndValidity();
       },
       () => {
         this.submitInfo.message = 'Não foi possível atualizar os dados!';

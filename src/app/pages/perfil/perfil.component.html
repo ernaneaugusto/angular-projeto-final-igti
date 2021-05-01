@@ -18,6 +18,7 @@
                        formControlName="name"
                        placeholder="Seu nome"
                        class="form-control only-border-bottom" />
+                <div *ngIf="f.name.errors && f.name.touched" class="text-danger">Nome<span *ngIf="userType === 'E'"> do Estabelecimento</span> é obrigatório</div>
               </div>
             </div>
             <div class="col-lg-6 col-12 mb-3">
@@ -34,6 +35,7 @@
                        formControlName="birthday"
                        placeholder="dd/mm/aaaa"
                        class="form-control only-border-bottom" />
+                <div *ngIf="f.birthday.errors && f.birthday.touched" class="text-danger">Data é obrigatório</div>
               </div>
             </div>
           </div>
@@ -48,31 +50,7 @@
                         name="address"
                         formControlName="address"
                        class="form-control only-border-bottom" />
-              </div>
-            </div>
-            <div class="col-lg-6 col-12 mb-3">
-              <div class="form-group">
-                <label class="form-label"
-                       for="city">Cidade *</label>
-                <input type="text"
-                       id="city"
-                       name="city"
-                       forControlName="city"
-                       class="form-control only-border-bottom" />
-              </div>
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="col-lg-6 col-12 mb-3">
-              <div class="form-group">
-                <label class="form-label"
-                       for="district">Bairro *</label>
-                <input type="text"
-                       id="district"
-                       name="district"
-                       forControlName="district"
-                       class="form-control only-border-bottom" />
+                <div *ngIf="f.address.errors && f.address.touched" class="text-danger">Endereço é obrigatório</div>
               </div>
             </div>
             <div class="col-lg-6 col-12 mb-3">
@@ -83,7 +61,7 @@
                   class="form-select form-control only-border-bottom"
                   id="state"
                   name="state"
-                  forControlName="state">
+                  formControlName="state">
                   <option disabled selected value="">-- Selecione</option>
                   <option value="AC">Acre</option>
                   <option value="AL">Alagoas</option>
@@ -113,6 +91,34 @@
                   <option value="SE">Sergipe</option>
                   <option value="TO">Tocantins</option>
                 </select>
+                <div *ngIf="f.state.errors && f.state.touched" class="text-danger">Estado é obrigatório</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-lg-6 col-12 mb-3">
+              <div class="form-group">
+                <label class="form-label"
+                       for="city">Cidade *</label>
+                <input type="text"
+                       id="city"
+                       name="city"
+                       formControlName="city"
+                       class="form-control only-border-bottom" />
+                <div *ngIf="f.city.errors && f.city.touched" class="text-danger">Cidade é obrigatório</div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-12 mb-3">
+              <div class="form-group">
+                <label class="form-label"
+                       for="district">Bairro *</label>
+                <input type="text"
+                       id="district"
+                       name="district"
+                       formControlName="district"
+                       class="form-control only-border-bottom" />
+                <div *ngIf="f.district.errors && f.district.touched" class="text-danger">Bairro é obrigatório</div>
               </div>
             </div>
           </div>
@@ -128,18 +134,20 @@
                        formControlName="email"
                        placeholder="exemplo@email.com"
                        class="form-control only-border-bottom" />
+                <div *ngIf="f.email.errors && f.email.touched" class="text-danger">E-mail é obrigatório</div>
               </div>
             </div>
             <div class="col-lg-4 col-12 mb-3">
               <div class="form-group">
                 <label class="form-label"
-                       for="password">Senha *</label>
+                       for="password">Senha atual *</label>
                 <input type="password"
                        id="password"
                        name="password"
                        formControlName="password"
                        placeholder="********"
                        class="form-control only-border-bottom" />
+                <div *ngIf="f.password.errors && f.password.touched" class="text-danger">Senha é obrigatório</div>
               </div>
             </div>
             <div class="col-lg-4 col-12 mb-3">
@@ -152,11 +160,12 @@
                        formControlName="confirmPassword"
                        placeholder="********"
                        class="form-control only-border-bottom" />
+                <div *ngIf="f.confirmPassword.errors && f.confirmPassword.touched" class="text-danger">Confirmar senha é obrigatório</div>
               </div>
             </div>
           </div>
 
-          <button (click)="submitForm()" class="btn btn-primary"><i class="fa fa-check"></i> Atualizar dados</button>
+          <button [disabled]="form.invalid" (click)="submitForm()" class="btn btn-primary"><i class="fa fa-check"></i> Atualizar dados</button>
 
           <div class="row" *ngIf="submitInfo.show && submitInfo.message !== ''">
             <div class="col-12">
