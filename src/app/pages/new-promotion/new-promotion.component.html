@@ -75,17 +75,11 @@
             <div class="form-group">
               <label class="form-label"
                      for="name">Produto</label>
-              <select class="form-select only-border-bottom"
+              <input type="text"
+                     id="product"
                      name="product"
                      formControlName="product"
-                      aria-label="
-                      Produto">
-                <option selected
-                        disabled>Produto</option>
-                <option value="1">Nome Produto 1</option>
-                <option value="2">Nome Produto 2</option>
-                <option value="3">Nome Produto 3</option>
-              </select>
+                     class="form-control only-border-bottom" />
               <div *ngIf="f.product.errors && f.product.touched" class="text-danger">Produto é obrigatório</div>
             </div>
           </div>
