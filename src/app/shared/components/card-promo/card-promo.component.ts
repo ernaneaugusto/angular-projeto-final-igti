@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { PromotionModel } from 'src/app/shared/models/promotion/promotion.model';
 
 @Component({
   selector: 'app-card-promo',
@@ -13,9 +12,9 @@ export class CardPromoComponent implements OnInit {
 
   constructor() {}
 
-  public remove(event: PromotionModel) {
+  public remove(event: any) {
     const confirmDelete = confirm(
-      `Tem certeza que quer excuir a promoção "${event.name}"`
+      `Tem certeza que quer excuir a promoção "${event.name | event.promotionName}"`
     );
 
     if (confirmDelete) {
@@ -23,5 +22,5 @@ export class CardPromoComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }
