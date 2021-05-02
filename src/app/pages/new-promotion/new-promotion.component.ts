@@ -17,6 +17,7 @@ export class NewPromotionComponent implements OnInit {
   public submitInfo = {
     message: '',
     type: '',
+    show: false
   };
   public form: FormGroup = new FormGroup({
     id: new FormControl('', []),
@@ -110,6 +111,7 @@ export class NewPromotionComponent implements OnInit {
     this.submitInfo = {
       message: '',
       type: '',
+      show: false
     };
 
     if (!this.isFlowEdit) {
@@ -118,11 +120,13 @@ export class NewPromotionComponent implements OnInit {
           this.form.reset();
           this.submitInfo.message = 'Promoção cadastrada com sucesso!';
           this.submitInfo.type = 'success';
+          this.submitInfo.show = true;
         },
         () => {
           this.errorSubmit = true;
           this.submitInfo.message = 'Erro ao cadastrar Promoção!';
           this.submitInfo.type = 'danger';
+          this.submitInfo.show = true;
         }
       );
     } else {
@@ -141,11 +145,13 @@ export class NewPromotionComponent implements OnInit {
           
           this.submitInfo.message = 'Promoção atualizada com sucesso!';
           this.submitInfo.type = 'success';
+          this.submitInfo.show = true;
         },
         () => {
           this.errorSubmit = true;
           this.submitInfo.message = 'Erro ao atualizar Promoção!';
           this.submitInfo.type = 'danger';
+          this.submitInfo.show = true;
         }
       );
     }

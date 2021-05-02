@@ -211,18 +211,14 @@
           </div> -->
         </div>
 
-        <div class="row">
-              <div class="col-12">
-                     <app-status-message [message]="submitInfo.message" [type]="submitInfo.type"></app-status-message>
-              </div>
-        </div>
-
         <button class="btn btn-primary" [disabled]="form.invalid" (click)="submitForm()"><i class="fa fa-check"></i> 
               <span *ngIf="!isFlowEdit; else editFlow"> Salvar Promoção</span>
               <ng-template #editFlow>
                      <span> Atualizar Promoção</span>
               </ng-template>
        </button>
+
+       <app-status-message [message]="submitInfo.message" [type]="submitInfo.type"></app-status-message>
 
       </form>
     </div>

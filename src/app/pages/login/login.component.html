@@ -143,11 +143,7 @@
                                     <button [disabled]="formRegister.invalid" (click)="submitFormRegister()" type="submit" class="btn btn-primary btn-block"><i class="fas fa-check"></i>
                                         Registrar</button>
 
-                                    <div class="row" *ngIf="submitInfo.show && submitInfo.message !== ''">
-                                        <div class="col-12">
-                                            <app-status-message [message]="submitInfo.message" [type]="submitInfo.type" ></app-status-message>
-                                        </div>
-                                    </div>
+                                    <app-status-message [show]="submitInfo.show" [message]="submitInfo.message" [type]="submitInfo.type" ></app-status-message>
                                 </form>
                             </div>
                         </div>
