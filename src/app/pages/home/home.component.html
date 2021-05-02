@@ -1,21 +1,38 @@
 <app-main-content [isAdmin]="isAdmin" title="Home" [isBackButton]="false" [isSearchSection]="true">
     
     <div class="row">
-        <div class="col-12">
+        <div class="col-12" *ngIf="promotionsAdmin.length > 0">
             <h2 class="section-title"><i class="fas fa-list-alt"></i> Suas Promoções</h2>
             <hr />
             <app-status-message [type]="yourPromotionsInfo.type" [show]="yourPromotionsInfo.show" [message]="yourPromotionsInfo.message"></app-status-message>
         </div>
-        <div class="col-lg-4 col-md-6 col-12 mb-3" *ngFor="let promotion of promotions">
+        <div class="col-lg-4 col-md-6 col-12 mb-3" *ngFor="let promotion of promotionsAdmin">
             <app-card-promo *ngIf="!yourPromotionsInfo.show" (deleteItem)="deletePromotion($event)" [promotion]="promotion" [isAdmin]="isAdmin"></app-card-promo>
         </div>
 
-        <div class="col-12 mt-5" *ngIf="favorites.length > 0">
+        <div class="col-12" *ngIf="favorites.length > 0">
             <h2 class="section-title"><i class="fas fa-list-alt"></i> Promoções Favoritas</h2>
             <hr />
         </div>
         <div class="col-lg-4 col-md-6 col-12 mb-3" *ngFor="let favorite of favorites">
             <app-card-promo [promotion]="favorite" [isAdmin]="isAdmin"></app-card-promo>
+        </div>
+        
+        <div class="col-12" *ngIf="!isAdmin && promotionsClient.length > 0">
+            <h2 class="section-title"><i class="fas fa-list-alt"></i> Suas Promoções</h2>
+            <hr />
+            <app-status-message [type]="!isAdmin && yourPromotionsInfo.type" [show]="yourPromotionsInfo.show" [message]="yourPromotionsInfo.message"></app-status-message>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 mb-3" *ngFor="let item of promotionsClient">
+            <app-card-promo *ngIf="!isAdmin && !yourPromotionsInfo.show" [promotion]="item" [isAdmin]="isAdmin"></app-card-promo>
+        </div>
+
+        <div class="col-12" *ngIf="!isAdmin && allPromotionsClient.length > 0">
+            <h2 class="section-title"><i class="fas fa-list-alt"></i> Todas as Promoções</h2>
+            <hr />
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 mb-3" *ngFor="let promo of allPromotionsClient">
+            <app-card-promo *ngIf="!isAdmin && !yourPromotionsInfo.show" [promotion]="promo" [isAdmin]="isAdmin"></app-card-promo>
         </div>
     </div>
 
