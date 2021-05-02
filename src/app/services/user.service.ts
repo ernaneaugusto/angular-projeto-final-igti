@@ -4,6 +4,13 @@ import { URL } from './../config/urls';
 import { User } from './../shared/models/user/user.interface';
 import { Observable } from 'rxjs';
 
+export interface PromotionInfo {
+  id: string;
+  userId: string;
+  promotionId: string;
+  isFavorite: boolean;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -12,6 +19,18 @@ export class UserService {
 
   public setRegisterUser(data: User) {
     return this.http.post<User>(`${URL.baseUrl}/${URL.users}`, data);
+  }
+  
+  public getPromotionByUser(userId: string | number): Observable<Array<PromotionInfo>> {
+    return this.http.get<Array<PromotionInfo>>(`${URL.baseUrl}/${URL.promotionsByUser}?userId=${userId}`);
+  }
+  
+  public setPromotionToUser(promotionInfo: PromotionInfo) {
+    return this.http.post<PromotionInfo>(`${URL.baseUrl}/${URL.promotionsByUser}`, promotionInfo);
+  }
+  
+  public deletePromotionToUser(id: string | number) {
+    return this.http.delete<PromotionInfo>(`${URL.baseUrl}/${URL.promotionsByUser}/${id}`);
   }
 
   public updateUser(data: User) {

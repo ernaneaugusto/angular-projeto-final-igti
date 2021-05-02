@@ -3,4 +3,5 @@ export const URL = {
     promotions: 'promocoes',
     users: 'usuarios',
     establishments: 'estabelecimentos',
+    promotionsByUser: 'promotionsByUser',
 }

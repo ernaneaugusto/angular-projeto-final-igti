@@ -8,13 +8,18 @@
         </div>
 
         <div class="col-lg-6 col-12 mb-3">
-            <button class="btn" [class.btn-warning]="isFavorite" [class.btn-outline-warning]="!isFavorite" (click)="toggleFavorite()" [title]="favoriteInfo">
+            <button *ngIf="userInCurrentPromotion" class="btn" [class.btn-warning]="isFavorite" [class.btn-outline-warning]="!isFavorite" (click)="toggleFavorite()" [title]="favoriteInfo">
                 <i class="far fa-star"></i>
             </button>
+            
             <p class="mt-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut atque et quos dolorem
                 architecto voluptatum ipsam nemo suscipit libero hic.</p>
-            <button class="btn btn-primary"><i class="far fa-check-circle"></i> Participar</button>
 
+            <button *ngIf="!userInCurrentPromotion" (click)="enterPromotion()" class="btn btn-primary"><i class="far fa-check-circle"></i> Participar</button>
+
+            <button *ngIf="userInCurrentPromotion" (click)="leavePromotion()" class="btn btn-danger"><i class="fa fa-times"></i> Sair da Promoção</button>
+
+            <app-status-message class="mt-3" [show]="submitInfo.show" [message]="submitInfo.message" [type]="submitInfo.type"></app-status-message>
         </div>
 
         <div class="col-lg-6 col-12 mb-3">
