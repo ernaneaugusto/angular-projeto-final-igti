@@ -11,6 +11,7 @@ export class MainContentComponent implements OnInit {
   @Input() title: string = '';
   @Input() isSearchSection: boolean = true;
   @Input() isBackButton: boolean = true;
+  @Input() isAdmin: boolean = true;
 
   constructor(private router: Router) { }
 
