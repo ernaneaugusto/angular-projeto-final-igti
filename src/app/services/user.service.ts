@@ -29,6 +29,12 @@ export class UserService {
     return this.http.post<PromotionInfo>(`${URL.baseUrl}/${URL.promotionsByUser}`, promotionInfo);
   }
   
+  public updatePromotionToUser(promotionInfo: PromotionInfo) {
+    const { id, isFavorite } = promotionInfo;
+    
+    return this.http.patch<PromotionInfo>(`${URL.baseUrl}/${URL.promotionsByUser}/${id}`, {isFavorite});
+  }
+  
   public deletePromotionToUser(id: string | number) {
     return this.http.delete<PromotionInfo>(`${URL.baseUrl}/${URL.promotionsByUser}/${id}`);
   }

@@ -41,9 +41,8 @@ export class PromotionDetailsComponent implements OnInit {
       // Busca Promocoes para validar se usuario ja participa
       this.userService
         .getPromotionByUser(this.promotionInfo.userId)
-        .subscribe((res) => {
-          console.log("## pomtomods", res);
-          const userInPromo = this.userInPromotion(res);
+        .subscribe((promos: Array<PromotionInfo>) => {
+          const userInPromo = this.userInPromotion(promos);
           
           // Valida participacao do usuario na Promocao atual
           // mostrando o botao Participar ou Sair da Promocao
@@ -64,8 +63,9 @@ export class PromotionDetailsComponent implements OnInit {
   public enterPromotion(): void {
     this.userService
       .setPromotionToUser(this.promotionInfo)
-      .subscribe((res) => {
-        this.submitInfo.message = "Sucesso! Você já está participando dessa Promoção."
+      .subscribe((promoInfo: PromotionInfo) => {
+        this.promotionInfo = promoInfo;
+        this.submitInfo.message = "Sucesso! Você já está participando dessa Promoção.";
         this.submitInfo.type = "success";
         this.submitInfo.show = true;
         // Exibe o botao de Sair da Promocao
@@ -80,7 +80,6 @@ export class PromotionDetailsComponent implements OnInit {
   }
   
   public leavePromotion(): void {
-    console.log("## DELETE", this.promotionInfo);
     const confirmLeave = confirm("Se você sair da Promoção perderá todas as Estrelas/Valor atual acumulado. Tem certeza que deseja sair?");
 
     if(confirmLeave) {
@@ -103,6 +102,17 @@ export class PromotionDetailsComponent implements OnInit {
   }
 
   public toggleFavorite(): void {
+    const favorite = {
+      ...this.promotionInfo,
+      isFavorite: !this.promotionInfo.isFavorite
+    };
+
+    this.userService
+      .updatePromotionToUser(favorite)
+      .subscribe((promoInfo: PromotionInfo) => {
+        this.promotionInfo = promoInfo;
+      });
+
     this.isFavorite = !this.isFavorite;
     this.favoriteInfo = this.isFavorite ? "Remover das favoritas" : "Adicionar às favoritas"
   }
