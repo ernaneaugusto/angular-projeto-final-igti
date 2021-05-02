@@ -14,6 +14,10 @@ export class PromotionsService {
     return this.http.get<any>(`${URL.baseUrl}/${URL.promotions}`);
   }
   
+  public getPromotionById(id: string): Observable<any> {
+    return this.http.get<any>(`${URL.baseUrl}/${URL.promotions}?id=${id}`);
+  }
+ 
   public getPromotionsByEstablishment(id: string): Observable<any> {
     return this.http.get<any>(`${URL.baseUrl}/${URL.promotions}?establishmentId=${id}`);
   }

@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService, PromotionInfo } from './../../services/user.service';
 import { LoginService } from './../../services/login.service';
 import { StatusMessage } from './../../shared/components/status-message/model/status-message.interface';
+import { PromotionsService } from 'src/app/services/promotions.service';
+import { Promotion } from './../../shared/models/promotion/promotion.interface';
+import { PromotionModel } from 'src/app/shared/models/promotion/promotion.model';
 
 @Component({
   selector: 'app-promotion-details',
@@ -14,8 +17,13 @@ export class PromotionDetailsComponent implements OnInit {
   public isFavorite = false;
   public userInCurrentPromotion = false;
   public favoriteInfo = "";
-  
+  public promoDetails: Array<PromotionModel> = [];
   public submitInfo: StatusMessage = {
+    message: '',
+    type: '',
+    show: false,
+  };
+  public loaderInfo: StatusMessage = {
     message: '',
     type: '',
     show: false,
@@ -29,14 +37,27 @@ export class PromotionDetailsComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private promotionService: PromotionsService,
     private loginService: LoginService,
     private userService: UserService,
   ) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
-      this.promotionInfo.promotionId = params.id;
+      const { id } = params;
+      this.promotionInfo.promotionId = id;
       this.promotionInfo.userId = this.loginService.getUserLocalStorage().id;
+
+      this.promotionService
+        .getPromotionById(id)
+        .subscribe((promo: Array<Promotion>) => {
+          this.promoDetails = promo;
+        },
+        () => {
+          this.loaderInfo.message = "Não foi possível carregar as informações. Tente novamente.";
+          this.loaderInfo.type = "danger";
+          this.loaderInfo.show = true;
+        });
 
       // Busca Promocoes para validar se usuario ja participa
       this.userService
