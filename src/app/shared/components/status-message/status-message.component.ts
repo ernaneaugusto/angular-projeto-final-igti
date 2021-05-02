@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class StatusMessageComponent implements OnInit {
   @Input() message: string = '';
+  @Input() show?: boolean = false;
   @Input() type?: string = 'success';
 
   constructor() {}
