@@ -4,9 +4,10 @@
         <div class="col-12">
             <h2 class="section-title"><i class="fas fa-list-alt"></i> Suas Promoções</h2>
             <hr />
+            <app-status-message [type]="yourPromotionsInfo.type" [show]="yourPromotionsInfo.show" [message]="yourPromotionsInfo.message"></app-status-message>
         </div>
         <div class="col-lg-4 col-md-6 col-12 mb-3" *ngFor="let promotion of promotions">
-            <app-card-promo (deleteItem)="deletePromotion($event)" [promotion]="promotion" [isAdmin]="true"></app-card-promo>
+            <app-card-promo *ngIf="!yourPromotionsInfo.show" (deleteItem)="deletePromotion($event)" [promotion]="promotion" [isAdmin]="true"></app-card-promo>
         </div>
 
         <div class="col-12 mt-5">

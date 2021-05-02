@@ -4,6 +4,7 @@ import { Promotion } from 'src/app/shared/models/promotion/promotion.interface';
 import { PromotionModel } from './../../shared/models/promotion/promotion.model';
 import { Subscription } from 'rxjs';
 import { LoginService } from './../../services/login.service';
+import { StatusMessage } from './../../shared/components/status-message/model/status-message.interface';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,12 @@ import { LoginService } from './../../services/login.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   public promotions: Array<PromotionModel> = [];
+  public isAdmin: boolean = false;
+  public yourPromotionsInfo: StatusMessage = {
+    message: '',
+    type: '',
+    show: false,
+  };
   private subs$: Subscription = new Subscription();
 
   constructor(
@@ -20,13 +27,26 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    const {id} = this.loginService.getUserLocalStorage();
+    const {id, type} = this.loginService.getUserLocalStorage();
+
+    this.isAdmin = type === 'E' ? true : false;
     
     this.subs$.add(
       this.promotionsService
         .getPromotionsByEstablishment(id)
         .subscribe((data: Array<Promotion>) => {
           this.promotions = this.createModel(data);
+          
+          if(this.promotions.length === 0) {
+            this.yourPromotionsInfo.message = "Você não possui nenhuma Promoção!";
+            this.yourPromotionsInfo.type = "warning";
+            this.yourPromotionsInfo.show = true;
+          }
+        },
+        () => {
+          this.yourPromotionsInfo.message = "Ocorreu algum erro. Tente novamente.";
+          this.yourPromotionsInfo.type = "danger";
+          this.yourPromotionsInfo.show = true;
         })
     );
   }
