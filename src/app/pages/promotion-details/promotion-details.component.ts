@@ -31,6 +31,8 @@ export class PromotionDetailsComponent implements OnInit {
     id: '',
     userId: '',
     promotionId: '',
+    promotionName: '',
+    promotionDescription: '',
     isFavorite: false,
   };
 
@@ -52,6 +54,8 @@ export class PromotionDetailsComponent implements OnInit {
         (promo: Array<Promotion>) => {
           this.promoDetails = promo;
           this.promotionInfo.id = promo[0].id;
+          this.promotionInfo.promotionName = promo[0].name;
+          this.promotionInfo.promotionDescription = promo[0].description;
         },
         () => {
           this.loaderInfo.message =

@@ -8,6 +8,8 @@ export interface PromotionInfo {
   id: string;
   userId: string;
   promotionId: string;
+  promotionName: string;
+  promotionDescription: string;
   isFavorite: boolean;
 }
 
