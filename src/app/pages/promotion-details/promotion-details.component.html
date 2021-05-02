@@ -1,13 +1,13 @@
 <app-main-content title="Detalhe Promoção"
                   [isSearchSection]="false">
 
-    <div class="row" *ngIf="loaderInfo">
+    <div class="row" *ngIf="loaderInfo.show">
         <div class="col-12">
             <app-status-message [type]="loaderInfo.type" [show]="loaderInfo.show" [message]="loaderInfo.message"></app-status-message>
         </div>
     </div>
 
-    <div class="row" *ngIf="!loaderInfo">
+    <div class="row" *ngIf="!loaderInfo.show">
         <div class="col-12">
             <h2 class="section-title"><i class="fas fa-list-alt"></i> {{promoDetails[0]?.name}}</h2>
             <hr />
