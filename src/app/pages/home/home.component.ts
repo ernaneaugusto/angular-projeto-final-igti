@@ -40,10 +40,6 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.promotions = this.createModel(promotions);
           this.favorites = this.createModel(favorites);
 
-          console.table(promotions);
-          console.table(favorites);
-          
-          
           if(this.promotions.length === 0) {
             this.yourPromotionsInfo.message = "Você não possui nenhuma Promoção!";
             this.yourPromotionsInfo.type = "warning";
