@@ -13,6 +13,7 @@ import { StatusMessage } from './../../shared/components/status-message/model/st
 })
 export class HomeComponent implements OnInit, OnDestroy {
   public promotions: Array<PromotionModel> = [];
+  public favorites: Array<PromotionModel> = [];
   public isAdmin: boolean = false;
   public yourPromotionsInfo: StatusMessage = {
     message: '',
@@ -35,7 +36,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.promotionsService
         .getPromotionsByEstablishment(id)
         .subscribe((data: Array<Promotion>) => {
-          this.promotions = this.createModel(data);
+          const { promotions, favorites } = this.filterPromotions(data);
+          this.promotions = this.createModel(promotions);
+          this.favorites = this.createModel(favorites);
+
+          console.table(promotions);
+          console.table(favorites);
+          
           
           if(this.promotions.length === 0) {
             this.yourPromotionsInfo.message = "Você não possui nenhuma Promoção!";
@@ -67,6 +74,21 @@ export class HomeComponent implements OnInit, OnDestroy {
           alert(`Error ao excluir a Promoção ${promotion.name}!`)
         })
     );
+  }
+
+  private filterPromotions(promos: Array<PromotionModel>): { promotions: Array<PromotionModel>, favorites: Array<PromotionModel> } {
+    const promotions: Array<PromotionModel> = [];
+    const favorites: Array<PromotionModel> = [];
+
+    promos.forEach(item => {
+      if(item.isFavorite) {
+        favorites.push(item);
+      } else {
+        promotions.push(item);
+      }
+    });
+    
+    return { promotions, favorites };
   }
 
   private createModel(promotion: Array<Promotion>) {

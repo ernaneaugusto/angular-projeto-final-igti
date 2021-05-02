@@ -10,12 +10,12 @@
             <app-card-promo *ngIf="!yourPromotionsInfo.show" (deleteItem)="deletePromotion($event)" [promotion]="promotion" [isAdmin]="true"></app-card-promo>
         </div>
 
-        <div class="col-12 mt-5">
+        <div class="col-12 mt-5" *ngIf="favorites.length > 0">
             <h2 class="section-title"><i class="fas fa-list-alt"></i> Promoções Favoritas</h2>
             <hr />
         </div>
-        <div class="col-lg-4 col-md-6 col-12 mb-3" *ngFor="let promotion of promotions">
-            <app-card-promo [promotion]="promotion"></app-card-promo>
+        <div class="col-lg-4 col-md-6 col-12 mb-3" *ngFor="let favorite of favorites">
+            <app-card-promo [promotion]="favorite"></app-card-promo>
         </div>
     </div>
 
