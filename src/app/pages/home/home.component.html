@@ -4,8 +4,8 @@
         <div class="col-12" *ngIf="promotionsAdmin.length > 0">
             <h2 class="section-title"><i class="fas fa-list-alt"></i> Suas Promoções</h2>
             <hr />
-            <app-status-message [type]="yourPromotionsInfo.type" [show]="yourPromotionsInfo.show" [message]="yourPromotionsInfo.message"></app-status-message>
         </div>
+        <app-status-message *ngIf="promotionsAdmin.length === 0" [type]="yourPromotionsInfo.type" [show]="yourPromotionsInfo.show" [message]="yourPromotionsInfo.message"></app-status-message>
         <div class="col-lg-4 col-md-6 col-12 mb-3" *ngFor="let promotion of promotionsAdmin">
             <app-card-promo *ngIf="!yourPromotionsInfo.show" (deleteItem)="deletePromotion($event)" [promotion]="promotion" [isAdmin]="isAdmin"></app-card-promo>
         </div>

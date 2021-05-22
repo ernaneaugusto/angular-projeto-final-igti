@@ -56,7 +56,6 @@ export class HomeComponent implements OnInit, OnDestroy {
             const { promotions, favorites } = this.filterPromotions(data);
             this.promotionsAdmin = this.createModel(promotions);
             this.favorites = this.createModel(favorites);
-            console.log("## promo admin", this.promotionsAdmin);
 
             if(this.promotionsAdmin.length === 0) {
               this.yourPromotionsInfo.message = "Você não possui nenhuma Promoção!";
