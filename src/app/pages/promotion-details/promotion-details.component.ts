@@ -6,6 +6,7 @@ import { StatusMessage } from './../../shared/components/status-message/model/st
 import { PromotionsService } from 'src/app/services/promotions.service';
 import { Promotion } from './../../shared/models/promotion/promotion.interface';
 import { PromotionModel } from 'src/app/shared/models/promotion/promotion.model';
+import { User } from 'src/app/shared/models/user/user.interface';
 
 @Component({
   selector: 'app-promotion-details',
@@ -27,13 +28,14 @@ export class PromotionDetailsComponent implements OnInit {
     type: '',
     show: false,
   };
-  private promotionInfo: PromotionInfo = {
+  public promotionInfo: PromotionInfo = {
     id: '',
     userId: '',
     promotionId: '',
     promotionName: '',
     promotionDescription: '',
     isFavorite: false,
+    yourStars: 0
   };
 
   constructor(
@@ -51,11 +53,13 @@ export class PromotionDetailsComponent implements OnInit {
       this.promotionInfo.userId = idUser;
 
       this.promotionService.getPromotionById(id).subscribe(
-        (promo: Array<Promotion>) => {
+        (promo: Array<Promotion>) => {          
+          const promoItem = promo[0];
           this.promoDetails = promo;
-          this.promotionInfo.id = promo[0].id;
-          this.promotionInfo.promotionName = promo[0].name;
-          this.promotionInfo.promotionDescription = promo[0].description;
+          this.promotionInfo.id = promoItem.id;
+          this.promotionInfo.promotionName = promoItem.name;
+          this.promotionInfo.promotionDescription = promoItem.description;
+          this.promotionInfo.establishmentId = promoItem.establishmentId;
         },
         () => {
           this.loaderInfo.message =
@@ -69,11 +73,13 @@ export class PromotionDetailsComponent implements OnInit {
       this.userService
         .getPromotionByUser(this.promotionInfo.userId)
         .subscribe((promos: Array<PromotionInfo>) => {
-          const userInPromo = this.userInPromotion(promos);
+          const userInPromo = this.userInPromotion(promos);          
 
           // Valida participacao do usuario na Promocao atual
           // mostrando o botao Participar ou Sair da Promocao
           if (userInPromo) {
+            this.promotionInfo.isVisible = userInPromo.isVisible;
+            this.promotionInfo.yourStars = userInPromo.yourStars;
             this.userInCurrentPromotion = true;
             this.isFavorite = userInPromo.isFavorite;
             this.promotionInfo.id = userInPromo.id;
@@ -88,23 +94,28 @@ export class PromotionDetailsComponent implements OnInit {
 
   // Cadastra usuario na Promocao
   public enterPromotion(): void {
-    this.userService.setPromotionToUser(this.promotionInfo).subscribe(
-      (promoInfo: PromotionInfo) => {
-        this.promotionInfo = promoInfo;
-        this.submitInfo.message =
-          'Sucesso! Você já está participando dessa Promoção.';
-        this.submitInfo.type = 'success';
-        this.submitInfo.show = true;
-        // Exibe o botao de Sair da Promocao
-        this.userInCurrentPromotion = true;
-      },
-      () => {
-        this.submitInfo.message =
-          'Ocorreu um erro inesperado! Tente novamente.';
-        this.submitInfo.type = 'danger';
-        this.submitInfo.show = true;
-      }
-    );
+    this.userService.getUserById(this.promotionInfo.userId)
+      .subscribe((userData: User) => {
+        // Add Promocao para Usuario
+        this.userService.setPromotionToUser(this.promotionInfo).subscribe(
+          (promoInfo: PromotionInfo) => {
+            this.promotionInfo = promoInfo;
+            this.submitInfo.message =
+              'Sucesso! Você já está participando dessa Promoção.';
+            this.submitInfo.type = 'success';
+            this.submitInfo.show = true;
+            // Exibe o botao de Sair da Promocao
+            this.userInCurrentPromotion = true;
+          },
+          () => {
+            this.submitInfo.message =
+              'Ocorreu um erro inesperado! Tente novamente.';
+            this.submitInfo.type = 'danger';
+            this.submitInfo.show = true;
+          }
+        );
+      });
+      
   }
 
   public leavePromotion(): void {
