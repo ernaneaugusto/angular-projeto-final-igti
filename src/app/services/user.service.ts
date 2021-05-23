@@ -11,6 +11,9 @@ export interface PromotionInfo {
   promotionName: string;
   promotionDescription: string;
   isFavorite: boolean;
+  establishmentId?: string;
+  yourStars?: number;
+  isVisible?: boolean;
 }
 
 @Injectable({

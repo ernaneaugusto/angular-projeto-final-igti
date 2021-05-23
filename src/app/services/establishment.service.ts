@@ -18,4 +18,9 @@ export class EstablishmentService {
     // @TODO: Tipar retorno
     return this.http.get(`${URL.baseUrl}/${URL.establishments}?establishmentId=${id}`);
   }
+
+  public getClientsByPromotion(id: string | number): Observable<any> {
+    // @TODO: Tipar retorno
+    return this.http.get(`${URL.baseUrl}/${URL.promotionsByUser}?establishmentId=${id}`);
+  }
 }
