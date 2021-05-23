@@ -56,7 +56,7 @@ export class PromotionDetailsComponent implements OnInit {
         (promo: Array<Promotion>) => {          
           const promoItem = promo[0];
           this.promoDetails = promo;
-          this.promotionInfo.id = promoItem.id;
+          // this.promotionInfo.id = promoItem.id;
           this.promotionInfo.promotionName = promoItem.name;
           this.promotionInfo.promotionDescription = promoItem.description;
           this.promotionInfo.establishmentId = promoItem.establishmentId;
