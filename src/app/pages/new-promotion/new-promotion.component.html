@@ -1,5 +1,4 @@
-<app-main-content [title]="promotionId.length === 0 ? 'Nova Promoção' :'Editar Promoção'"
-                  [isSearchSection]="false">
+<app-main-content [title]="promotionId.length === 0 ? 'Nova Promoção' :'Editar Promoção'" [isSearchSection]="false">
 
   <div class="row">
     <div class="col-12">
@@ -7,26 +6,18 @@
         <div class="row">
           <div class="col-lg-6 col-12 mb-4">
             <div class="form-group">
-              <label class="form-label"
-                     for="name">Nome da Promoção</label>
-              <input type="text"
-                     id="name"
-                     name="name"
-                     formControlName="name"
-                     class="form-control only-border-bottom" />
+              <label class="form-label" for="name">Nome da Promoção</label>
+              <input type="text" id="name" name="name" formControlName="name" class="form-control only-border-bottom" />
               <div *ngIf="f.name.errors && f.name.touched" class="text-danger">Nome é obrigatório</div>
             </div>
           </div>
           <div class="col-lg-6 col-12 mb-4">
             <div class="form-group">
-              <label class="form-label"
-                     for="validity">Validade da Promoção dd/mm/aaaa</label>
-              <input type="text"
-                     id="validity"
-                     name="validity"
-                     formControlName="validity"
+              <label class="form-label" for="validity">Validade da Promoção dd/mm/aaaa</label>
+              <input type="text" id="validity" name="validity" formControlName="validity"
                      class="form-control only-border-bottom" />
-              <div *ngIf="f.validity.errors && f.validity.touched" class="text-danger">Validade da Promoção é obrigatório</div>
+              <div *ngIf="f.validity.errors && f.validity.touched" class="text-danger">Validade da Promoção é
+                obrigatório</div>
             </div>
           </div>
         </div>
@@ -34,26 +25,19 @@
         <div class="row">
           <div class="col-lg-6 col-12 mb-4">
             <div class="form-group">
-              <label class="form-label"
-                     for="stars">Número de estrelas ou Valor total</label>
-              <input type="number"
-                     id="stars"
-                     name="stars"
-                     formControlName="stars"
+              <label class="form-label" for="stars">Número de estrelas ou Valor total</label>
+              <input type="number" id="stars" name="stars" formControlName="stars"
                      class="form-control only-border-bottom" />
               <div *ngIf="f.stars.errors && f.stars.touched" class="text-danger">Número de estrelas é obrigatório</div>
             </div>
           </div>
           <div class="col-lg-6 col-12 mb-4">
             <div class="form-group">
-              <label class="form-label"
-                     for="starsMin">Número de estrelas ou Valor total mínimo</label>
-              <input type="number"
-                     id="starsMin"
-                     name="starsMin"
-                     formControlName="starsMin"
+              <label class="form-label" for="starsMin">Número de estrelas ou Valor total mínimo</label>
+              <input type="number" id="starsMin" name="starsMin" formControlName="starsMin"
                      class="form-control only-border-bottom" />
-              <div *ngIf="f.starsMin.errors && f.starsMin.touched" class="text-danger">Número de estrelas mínimo é obrigatório</div>
+              <div *ngIf="f.starsMin.errors && f.starsMin.touched" class="text-danger">Número de estrelas mínimo é
+                obrigatório</div>
             </div>
           </div>
         </div>
@@ -61,24 +45,16 @@
         <div class="row">
           <div class="col-lg-6 col-12 mb-4">
             <div class="form-group">
-              <label class="form-label"
-                     for="category">Categoria(Lanches, Mercado, Limpeza, Higiene...)</label>
-              <input type="text"
-                     id="category"
-                     name="category"
-                     formControlName="category"
+              <label class="form-label" for="category">Categoria(Lanches, Mercado, Limpeza, Higiene...)</label>
+              <input type="text" id="category" name="category" formControlName="category"
                      class="form-control only-border-bottom" />
               <div *ngIf="f.category.errors && f.category.touched" class="text-danger">Categoria é obrigatório</div>
             </div>
           </div>
           <div class="col-lg-6 col-12">
             <div class="form-group">
-              <label class="form-label"
-                     for="name">Produto</label>
-              <input type="text"
-                     id="product"
-                     name="product"
-                     formControlName="product"
+              <label class="form-label" for="name">Produto</label>
+              <input type="text" id="product" name="product" formControlName="product"
                      class="form-control only-border-bottom" />
               <div *ngIf="f.product.errors && f.product.touched" class="text-danger">Produto é obrigatório</div>
             </div>
@@ -88,67 +64,41 @@
         <div class="row">
           <div class="col-12 mb-4">
             <div class="form-group">
-              <label class="form-label"
-                     for="expirate">Número de estrelas ou Valor total expiram?</label>
+              <label class="form-label" for="expirate">Número de estrelas ou Valor total expiram?</label>
 
               <div class="d-flex">
-                <input type="radio"
-                       class="btn-check"
-                       name="expirate"
-                       formControlName="expirate"
-                       value="sim"
-                       id="sim" />
-                <label class="btn btn-info mb-2"
-                       for="sim">Sim</label>
+                <input type="radio" class="btn-check" name="expirate" formControlName="expirate" value="sim" id="sim" />
+                <label class="btn btn-info mb-2" for="sim">Sim</label>
 
-                <input type="radio"
-                       class="btn-check"
-                       name="expirate"
-                       formControlName="expirate"
-                       value="nao"
-                       id="nao" />
-                <label class="btn btn-info mb-2"
-                       for="nao">Não</label>
+                <input type="radio" class="btn-check" name="expirate" formControlName="expirate" value="nao" id="nao" />
+                <label class="btn btn-info mb-2" for="nao">Não</label>
               </div>
-              
+
               <div *ngIf="f.expirate.errors && f.expirate.touched" class="text-danger">Campo é obrigatório</div>
 
             </div>
 
           </div>
           <div class="col-lg-6 col-12 mb-4">
-              <div class="form-group">
-              <label class="form-label"
-                     for="weekDays">Dias da semana(segunda, terça, quarta...)</label>
-                <input
-                       type="text"
-                       id="weekDays"
-                       name="weekDays"
-                       formControlName="weekDays"
-                       class="form-control only-border-bottom" />
-              <div *ngIf="f.weekDays.errors && f.weekDays.touched" class="text-danger">Dias da Semana é obrigatório</div>
+            <div class="form-group">
+              <label class="form-label" for="weekDays">Dias da semana(segunda, terça, quarta...)</label>
+              <input type="text" id="weekDays" name="weekDays" formControlName="weekDays"
+                     class="form-control only-border-bottom" />
+              <div *ngIf="f.weekDays.errors && f.weekDays.touched" class="text-danger">Dias da Semana é obrigatório
               </div>
             </div>
-            <div class="col-lg-6 col-12 mb-4">
-              <div class="form-group">
-                     <label class="form-label"
-                            for="description">Breve descrição da Promoção</label>
-                     <input type="text"
-                            id="description"
-                            name="description"
-                            formControlName="description"
-                            class="form-control only-border-bottom" />
-                     <div *ngIf="f.description.errors && f.description.touched" class="text-danger">Descrição  é obrigatório</div>
+          </div>
+          <div class="col-lg-6 col-12 mb-4">
+            <div class="form-group">
+              <label class="form-label" for="description">Breve descrição da Promoção</label>
+              <input type="text" id="description" name="description" formControlName="description"
+                     class="form-control only-border-bottom" />
+              <div *ngIf="f.description.errors && f.description.touched" class="text-danger">Descrição é obrigatório
               </div>
-              <input type="hidden"
-                     id="establishmentId"
-                     name="establishmentId"
-                     formControlName="establishmentId"/>
-              <input type="hidden"
-                     id="id"
-                     name="id"
-                     formControlName="id"/>
             </div>
+            <input type="hidden" id="establishmentId" name="establishmentId" formControlName="establishmentId" />
+            <input type="hidden" id="id" name="id" formControlName="id" />
+          </div>
           <!-- <div class="col-12 mb-5">
             <div class="form-group">
               <div>
@@ -211,17 +161,49 @@
           </div> -->
         </div>
 
-        <button class="btn btn-primary" [disabled]="form.invalid" (click)="submitForm()"><i class="fa fa-check"></i> 
-              <span *ngIf="!isFlowEdit; else editFlow"> Salvar Promoção</span>
-              <ng-template #editFlow>
-                     <span> Atualizar Promoção</span>
-              </ng-template>
-       </button>
+        <button class="btn btn-primary" [disabled]="form.invalid" (click)="submitForm()"><i class="fa fa-check"></i>
+          <span *ngIf="!isFlowEdit; else editFlow"> Salvar Promoção</span>
+          <ng-template #editFlow>
+            <span> Atualizar Promoção</span>
+          </ng-template>
+        </button>
 
-       <app-status-message [show]="submitInfo.show" [message]="submitInfo.message" [type]="submitInfo.type"></app-status-message>
+        <app-status-message [show]="submitInfo.show" [message]="submitInfo.message" [type]="submitInfo.type">
+        </app-status-message>
 
       </form>
     </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <hr />
+      <h2 class="main-title mb-4">Clientes nessa Promoção</h2>
+      <app-status-message *ngIf="clientsInPromotion.show; else message" [type]="clientsInPromotion.type"
+                          [show]="clientsInPromotion.show" [message]="clientsInPromotion.message"></app-status-message>
+    </div>
+    <ng-template #message>
+      <div class="col-lg-4 col-md-6 col-12 mb-3" *ngFor="let client of clients">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="d-block fw-bold"><i class="fas fa-chevron-right text-info"></i>
+              {{client.clientName}}</h5>
+            <p>{{client.promotionName}}</p>
+            <p [class.text-success]="client.clientStars > 0" [class.text-danger]="client.clientStars === 0">
+              <strong>Estrelas: </strong> {{client.clientStars}}
+            </p>
+
+            <div class="d-flex">
+              <button (click)="toggleStar(client.id, client.clientStars, 'remove')"
+                      class="col btn btn-danger btn-sm mt-3" [disabled]="client.clientStars === 0"><i
+                   class="fa fa-minus"></i> Estrela</button>
+              <button (click)="toggleStar(client.id, client.clientStars, 'add')" class="col btn btn-primary btn-sm mt-3"
+                      style="margin-right: 0;"><i class="fa fa-plus"></i> Estrela</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
   </div>
 
 </app-main-content>

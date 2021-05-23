@@ -6,6 +6,18 @@ import { ActivatedRoute } from '@angular/router';
 import { PromotionModel } from 'src/app/shared/models/promotion/promotion.model';
 import { EstablishmentService } from './../../services/establishment.service';
 import { LoginService } from './../../services/login.service';
+import { PromotionInfo, UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/shared/models/user/user.interface';
+import { PromotionsService } from 'src/app/services/promotions.service';
+import { StatusMessage } from './../../shared/components/status-message/model/status-message.interface';
+
+interface ClientPromos {
+  id: string;
+  clientId: number;
+  clientName: string;
+  clientStars: number;
+  promotionName: string;
+}
 
 @Component({
   selector: 'app-new-promotion',
@@ -13,7 +25,13 @@ import { LoginService } from './../../services/login.service';
   styleUrls: ['./new-promotion.component.scss'],
 })
 export class NewPromotionComponent implements OnInit {
+  public clients: Array<ClientPromos> = [];
   public errorSubmit = false;
+  public clientsInPromotion: StatusMessage = {
+    message: 'Ainda não existem clientes nessa Promoção.',
+    type: 'warning',
+    show: true
+  };
   public submitInfo = {
     message: '',
     type: '',
@@ -44,9 +62,11 @@ export class NewPromotionComponent implements OnInit {
   }
 
   constructor(
+    private promotionsService: PromotionsService,
     private newPromotionService: NewPromotionService,
     private establishmentService: EstablishmentService,
     private loginService: LoginService,
+    private userService: UserService,
     private activatedRoute: ActivatedRoute
   ) {}
 
@@ -89,7 +109,11 @@ export class NewPromotionComponent implements OnInit {
               establishmentId,
               expirate,
             });
+
+            this.establishmentId = establishmentId;
+            this.getPromotionByEstablishment();
           });
+
       });
     } else {
       this.establishmentService
@@ -99,8 +123,78 @@ export class NewPromotionComponent implements OnInit {
           this.form.patchValue({
             establishmentId: this.establishmentId
           })
+
+          this.getPromotionByEstablishment();
         });
     }
+  }
+
+  public toggleStar(id: string, stars: number, option: "add" | "remove") {
+    const isConfirm = this.confirmStar(option);
+
+    if(!isConfirm) {
+      return;
+    }
+
+    if(option === "add") {
+      this.promotionsService
+        .updateStarsToUser(id, stars, "add")
+        .subscribe((data: PromotionInfo) => {
+          // @TODO: Utilizado pois a atualizacao do json-server nao eh imediata
+          // se nao utilizar o setTimeout a execucao da funcao nao reflete a
+          // atualizacao do valor no back-end
+          setTimeout(() => {
+            this.getPromotionByEstablishment(true);
+          }, 500);
+        });
+      
+      return;
+    }
+    
+    this.promotionsService
+      .updateStarsToUser(id, stars, "remove")
+      .subscribe(() => {
+        // @TODO: Utilizado pois a atualizacao do json-server nao eh imediata
+        // se nao utilizar o setTimeout a execucao da funcao nao reflete a
+        // atualizacao do valor no back-end
+        setTimeout(() => {
+          this.getPromotionByEstablishment(true);
+        }, 500);
+      });
+  }
+  
+  public getPromotionByEstablishment(isRelead: boolean = false) {
+    // Busca os Clientes que participam das Promocoes do Estabelecimento
+    this.establishmentService
+      .getClientsByPromotion(this.establishmentId)
+      .subscribe((clientsInPromos: Array<PromotionInfo>) => {
+        if(clientsInPromos.length > 0) {
+          // Ao chamar a funcao de ADD ou REMOVE estrelas
+          // limpa os dados para atualizar as informacoes
+          if(isRelead) this.clients = [];
+
+          // Remove o alert para nenhum Cliente na Promocao
+          this.clientsInPromotion.show = false;
+
+          clientsInPromos.forEach((client, i) => {
+            // Busca as informacoes de cada Cliente
+            this.userService
+              .getUserById(client.userId)
+              .subscribe((user: User) => {
+
+                this.clients.push({
+                  id: clientsInPromos[i].id,
+                  clientId: parseInt(user.id),
+                  clientName: user.name,
+                  clientStars: clientsInPromos[i].yourStars || 0,
+                  promotionName: clientsInPromos[i].promotionName
+                });
+
+              });
+          });
+        }
+      });
+
   }
 
   public submitForm(): void {
@@ -156,4 +250,11 @@ export class NewPromotionComponent implements OnInit {
       );
     }
   }
+
+  private confirmStar(option: "add" | "remove"): boolean {
+    const optionText = option === "add" ? "Adicionar" : "Remover";
+
+    return confirm(`${optionText} 01 Estrela do cliente?`);
+  }
+
 }
