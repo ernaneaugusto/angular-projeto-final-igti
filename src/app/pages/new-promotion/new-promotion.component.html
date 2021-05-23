@@ -179,10 +179,12 @@
     <div class="col-12">
       <hr />
       <h2 class="main-title mb-4">Clientes nessa Promoção</h2>
-      <app-status-message *ngIf="clientsInPromotion.show; else message" [type]="clientsInPromotion.type"
-                          [show]="clientsInPromotion.show" [message]="clientsInPromotion.message"></app-status-message>
+      <app-status-message *ngIf="clientsInPromotion.show; else message" [type]="clientsInPromotion.type" [show]="clientsInPromotion.show" [message]="clientsInPromotion.message"></app-status-message>
     </div>
-    <ng-template #message>
+  </div>
+
+  <ng-template #message>
+    <div class="row">
       <div class="col-lg-4 col-md-6 col-12 mb-3" *ngFor="let client of clients">
         <div class="card">
           <div class="card-body">
@@ -203,7 +205,7 @@
           </div>
         </div>
       </div>
-    </ng-template>
-  </div>
+    </div>
+  </ng-template>
 
 </app-main-content>
