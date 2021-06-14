@@ -30,9 +30,13 @@ const routes: Routes = [
   },
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'login',
+    loadChildren: () => import('./pages/landing/landing.module').then(landing => landing.LandingModule)
   },
+  // {
+  //   path: '',
+  //   pathMatch: 'full',
+  //   redirectTo: 'login',
+  // },
   {
     path: '**',
     component: LoginComponent,
@@ -40,7 +44,10 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+  imports: [RouterModule.forRoot(
+    routes,
+    // { enableTracing: true }
+  )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

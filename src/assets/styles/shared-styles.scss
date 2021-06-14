@@ -70,6 +70,23 @@ h1, h2, h3, h4, h5, h6, p {
     [class^="fa"] {
         color: $color_info;
     }
+
+    &__landing {
+        font-size: 2.75rem;
+    }
+}
+.section-description {
+    margin-top: 0.75rem;
+    font-size: 1.25rem;
+    font-family: "Ubuntu-Light";
+
+    [class^="fa"] {
+        color: $color_info;
+    }
+
+    &__landing {
+        font-size: 1.75rem;
+    }
 }
 
 /* HELPERS STYLES */

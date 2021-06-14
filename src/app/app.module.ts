@@ -9,6 +9,7 @@ import { HomeModule } from './pages/home/home.module';
 import { LoginModule } from './pages/login/login.module';
 import { PerfilModule } from './pages/perfil/perfil.module';
 import { EstablishmentModule } from './pages/establishment/establishment.module';
+import { LandingModule } from './pages/landing/landing.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { EstablishmentModule } from './pages/establishment/establishment.module'
     LoginModule,
     PerfilModule,
     EstablishmentModule,
+    LandingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
